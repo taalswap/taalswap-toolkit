@@ -7,7 +7,7 @@ export const baseColors = {
   primaryDark: "#0098A1",
   secondary: "#7645D9",
   success: "#00ab55",
-  warning: "#FFB237",
+  warning: "rgb(255, 72, 66)",
 };
 
 export const additionalColors = {
