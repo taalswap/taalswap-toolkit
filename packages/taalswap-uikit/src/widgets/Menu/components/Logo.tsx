@@ -21,12 +21,12 @@ const blink = keyframes`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  .mobile-icon {
-    width: 32px;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      display: none;
-    }
-  }
+  // .mobile-icon {
+  //   width: 32px;
+  //   ${({ theme }) => theme.mediaQueries.nav} {
+  //     display: none;
+  //   }
+  // }
   .desktop-icon {
     width: 160px;
     display: none;
