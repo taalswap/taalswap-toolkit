@@ -1,20 +1,20 @@
 {
-  "name": "pancake-toolkit",
+  "name": "taalswap-toolkit",
   "version": "1.0.0",
-  "description": "Pancake frontend packages",
+  "description": "TaalSwap frontend packages",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pancakeswap/pancake-toolkit.git"
+    "url": "git+https://github.com/taalswap/taalswap-toolkit.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pancakeswap/pancake-toolkit/issues"
+    "url": "https://github.com/taalswap/taalswap-toolkit/issues"
   },
-  "homepage": "https://github.com/pancakeswap/pancake-toolkit#readme",
+  "homepage": "https://github.com/taalswap/taalswap-toolkit#readme",
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
@@ -22,12 +22,6 @@
     "format:check": "lerna run format:check",
     "storybook:build": "lerna run storybook:build",
     "release": "yarn build && yarn lerna publish"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format:check",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
