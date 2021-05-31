@@ -32,7 +32,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
           }}
           style={{ backgroundColor: "#00ab55" }}
         >
-          Connect
+          Connect Wallet
         </Button>
       )}
     </div>
