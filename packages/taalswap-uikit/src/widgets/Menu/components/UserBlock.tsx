@@ -30,6 +30,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
           onClick={() => {
             onPresentConnectModal();
           }}
+          style={{ backgroundColor: "#00ab55" }}
         >
           Connect
         </Button>
