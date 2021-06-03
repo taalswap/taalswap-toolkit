@@ -7,6 +7,10 @@ import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel, LinkStatus } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import { PanelProps, PushedProps } from "../types";
+// import gitBookIcon from "../svg/ic_gitbook.svg";
+import { Icon, InlineIcon } from "@iconify/react";
+import gitbookIcon from "@iconify-icons/simple-icons/gitbook";
+import linkExternal from "@iconify-icons/fe/link-external";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
@@ -81,6 +85,25 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           </MenuEntry>
         );
       })}
+
+      <div style={{ marginTop: "50px" }}>
+        <MenuEntry key="ido">
+          <MenuLink href="https://taalswap.finance" target="_blank">
+            <Icon icon={linkExternal} width="24" />
+            <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
+              IDO
+            </LinkLabel>
+          </MenuLink>
+        </MenuEntry>
+        <MenuEntry key="doc">
+          <MenuLink href="https://taalswap.gitbook.io/taalswap-documents" target="_blank">
+            <Icon icon={gitbookIcon} width="24" />
+            <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
+              Docs
+            </LinkLabel>
+          </MenuLink>
+        </MenuEntry>
+      </div>
     </Container>
   );
 };
