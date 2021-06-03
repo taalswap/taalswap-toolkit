@@ -28,17 +28,22 @@ const Results = () => (
       </li>
       <li>
         <Link href="http://localhost:3000/#/pool" style={{ textDecoration: "none" }}>
-          <span className="liquidity_icon">liquidity_icon</span>Liquidity
+          <span className="liquidity_icon">liquidity_icon</span>Pools
         </Link>
       </li>
       <li>
         <Link href="http://localhost:3001/farms" style={{ textDecoration: "none" }}>
-          <span className="farms_icon">Farms_icon</span>Farms
+          <span className="farms_icon">Farms_icon</span>Farming
+        </Link>
+      </li>
+      <li>
+        <Link href="http://localhost:3001/pools" style={{ textDecoration: "none" }}>
+          <span className="pools_icon">Pools_icon</span>Staking
         </Link>
       </li>
       <li>
         <Link href="http://localhost:3001" style={{ textDecoration: "none" }}>
-          <span className="connect_icon">connect_icon</span>Coneect Wallet
+          <span className="pools_icon">connect_icon</span>Coneect Wallet
         </Link>
       </li>
     </ul>

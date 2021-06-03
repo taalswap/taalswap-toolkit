@@ -36,17 +36,17 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3000/#/pool" style={{ color: "#212b36", textDecoration: "none" }}>
-            Liquidity
+            Pools
           </Link>
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3001/farms" style={{ color: "#212b36", textDecoration: "none" }}>
-            Farms
+            Farming
           </Link>
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3001/pools" style={{ color: "#212b36", textDecoration: "none" }}>
-            Pools
+            Staking
           </Link>
         </div>
         {/* <div>
