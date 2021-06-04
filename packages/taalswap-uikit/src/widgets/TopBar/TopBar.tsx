@@ -49,6 +49,20 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
             Staking
           </Link>
         </div>
+        <div style={{ marginLeft: "30px" }}>
+          <Link href="https://taalswap.finance" target="_blank" style={{ color: "#212b36", textDecoration: "none" }}>
+            IDO
+          </Link>
+        </div>
+        <div style={{ marginLeft: "30px" }}>
+          <Link
+            href="https://taalswap.gitbook.io/taalswap-documents"
+            target="_blank"
+            style={{ color: "#212b36", textDecoration: "none" }}
+          >
+            Docs
+          </Link>
+        </div>
         {/* <div>
           <input type="button" value="Connect Wallet" className="connect_btn" />
         </div> */}

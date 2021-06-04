@@ -15,7 +15,7 @@ const TopMenu = () => {
 const Results = () => (
   <div className="hide_menu" id="results">
     <span className="arrow_box">-</span>
-    <ul>
+    <ul style={{ listStyle: "none" }}>
       <li>
         <Link href="http://localhost:3001" style={{ color: "#00ab55", textDecoration: "none" }}>
           <span className="home_icon">home_icon</span>Home
@@ -44,6 +44,16 @@ const Results = () => (
       <li>
         <Link href="http://localhost:3001" style={{ textDecoration: "none" }}>
           <span className="connect_icon">connect_icon</span>Coneect Wallet
+        </Link>
+      </li>
+      <li>
+        <Link href="https://taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
+          IDO
+        </Link>
+      </li>
+      <li>
+        <Link href="https://taalswap.gitbook.io/taalswap-documents" target="_blank" style={{ textDecoration: "none" }}>
+          Docs
         </Link>
       </li>
     </ul>
