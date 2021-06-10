@@ -36,17 +36,31 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3000/#/pool" style={{ color: "#212b36", textDecoration: "none" }}>
-            Pools
+            Liquidity
           </Link>
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3001/farms" style={{ color: "#212b36", textDecoration: "none" }}>
-            Farming
+            Farms
           </Link>
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link href="http://localhost:3001/pools" style={{ color: "#212b36", textDecoration: "none" }}>
             Staking
+          </Link>
+        </div>
+        <div style={{ marginLeft: "30px" }}>
+          <Link href="https://taalswap.finance" target="_blank" style={{ color: "#212b36", textDecoration: "none" }}>
+            IDO
+          </Link>
+        </div>
+        <div style={{ marginLeft: "30px" }}>
+          <Link
+            href="https://taalswap.gitbook.io/taalswap-docs-v-2-0"
+            target="_blank"
+            style={{ color: "#212b36", textDecoration: "none" }}
+          >
+            Docs
           </Link>
         </div>
         {/* <div>
