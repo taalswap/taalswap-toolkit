@@ -86,7 +86,7 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.gitbook.io/taalswap-documents" target="_blank" style={{ textDecoration: "none" }}>
+        <Link href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" target="_blank" style={{ textDecoration: "none" }}>
           <span>
             <Icon icon={gitbookIcon} width="24" />
           </span>

@@ -56,7 +56,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
         </div>
         <div style={{ marginLeft: "30px" }}>
           <Link
-            href="https://taalswap.gitbook.io/taalswap-documents"
+            href="https://taalswap.gitbook.io/taalswap-docs-v-2-0"
             target="_blank"
             style={{ color: "#212b36", textDecoration: "none" }}
           >
