@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.1](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.37.0...@pancakeswap/uikit@0.37.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* (Menu) Footer is not visible completely when navigation bar is visible ([#138](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/issues/138)) ([fa6fc66](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/commit/fa6fc669091398de8c3cee156e3724006023a4a2))
+* Message component ([#150](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/issues/150)) ([90387d4](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/commit/90387d4cc5758763476d1d20c0a9b8d63588c689))
+
+
+
+
+
+# [0.37.0](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.36.1...@pancakeswap/uikit@0.37.0) (2021-06-08)
+
+
+### Features
+
+* (BalanceInput) Add decimal check support ([#142](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/issues/142)) ([763e13f](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/commit/763e13f836ac2cbb8a3b1132d98854e07a492ced))
+
+
+
+
+
+## [0.36.1](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.36.0...@pancakeswap/uikit@0.36.1) (2021-06-03)
+
+**Note:** Version bump only for package @pancakeswap/uikit
+
+
+
+
+
+# [0.36.0](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.35.0...@pancakeswap/uikit@0.36.0) (2021-05-31)
+
+
+### Features
+
+* Add a grid primitive ([#122](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/issues/122)) ([15e8aad](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/commit/15e8aad6bd87ed204a7ffcd14d434a009a0051ef))
+
+
+
+
+
 # [0.35.0](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@pancakeswap/uikit@0.34.0...@pancakeswap/uikit@0.35.0) (2021-05-27)
 
 
