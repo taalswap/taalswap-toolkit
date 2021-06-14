@@ -94,7 +94,8 @@ const Menu: React.FC<NavProps> = ({
       else if (!isBottomOfPage) {
         if (currentOffset < refPrevOffset.current) {
           // Has scroll up
-          setShowMenu(true);
+          // setShowMenu(true);
+          setShowMenu(false);
         } else {
           // Has scroll down
           setShowMenu(false);
