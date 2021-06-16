@@ -8,6 +8,11 @@ import CakePrice from "./CakePrice";
 import ThemeSwitcher from "./ThemeSwitcher";
 import SocialLinks from "./SocialLinks";
 import LangSelector from "./LangSelector";
+import Text from "../../../components/Text/Text";
+import Link from "../../../components/Link/Link";
+import TwIcon from "./images/tw_icon.svg"
+import PageIcon from "./images/page_icon.svg"
+import MessageIcon from "./images/message_icon.svg"
 
 interface Props extends PanelProps, PushedProps {}
 
@@ -15,7 +20,6 @@ const Container = styled.div`
   flex: none;
   padding: 8px 4px;
   background-color: ${({ theme }) => theme.nav.background};
-  border-top: solid 2px rgba(133, 133, 133, 0.1);
 `;
 
 const SettingsEntry = styled.div`
@@ -29,9 +33,9 @@ const SettingsEntry = styled.div`
 const SocialEntry = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: ${MENU_ENTRY_HEIGHT}px;
-  padding: 0 16px;
+  padding: 0 0 58px;
 `;
 
 const PanelFooter: React.FC<Props> = ({
@@ -56,14 +60,12 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
+      <Text color="rgb(145, 158, 171)" style={{fontSize:"14px",margin:"20px 0 48px",textAlign:"center"}}>&copy; All rights reserved.</Text>
       <SocialEntry>
-        <CakePrice cakePriceUsd={cakePriceUsd} />
-        <SocialLinks />
+        <Link style={{marginRight:"36px",cursor:"pointer"}}><img src={TwIcon} alt="tw_icon" /></Link>
+        <Link style={{marginRight:"36px",cursor:"pointer"}}><img src={PageIcon} alt="tw_icon" /></Link>
+        <Link style={{cursor:"pointer"}}><img src={MessageIcon} alt="tw_icon" /></Link>
       </SocialEntry>
-      <SettingsEntry>
-        <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
-        <LangSelector currentLang={currentLang} langs={langs} setLang={setLang} />
-      </SettingsEntry>
     </Container>
   );
 };

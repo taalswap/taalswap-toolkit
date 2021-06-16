@@ -30,7 +30,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
           onClick={() => {
             onPresentConnectModal();
           }}
-          style={{ backgroundColor: "#00ab55",padding:"20px",borderRadius:"8px" }}
+          style={{ backgroundColor: "#00ab55",padding:"6px 16px",borderRadius:"8px",fontSize:"14px",height:"36px" }}
         >
           Connect Wallet
         </Button>
