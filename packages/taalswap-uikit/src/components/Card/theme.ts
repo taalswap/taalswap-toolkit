@@ -19,7 +19,7 @@ export const light: CardTheme = {
 
 export const dark: CardTheme = {
   background: darkColors.backgroundAlt,
-  boxShadow: shadows.level1,
+  boxShadow: shadows.level2,
   boxShadowActive: shadows.active,
   boxShadowSuccess: shadows.success,
   boxShadowWarning: shadows.warning,

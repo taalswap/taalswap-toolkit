@@ -63,6 +63,8 @@ export type Colors = {
   inputSmall: string;
   inputBtn:string;
   detailsBg:string;
+  listBg:string;
+  logoColor:string;
 
   // Gradients
   gradients: Gradients;

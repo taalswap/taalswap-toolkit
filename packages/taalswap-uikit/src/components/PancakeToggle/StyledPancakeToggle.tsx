@@ -22,9 +22,9 @@ const scaleKeyValues = {
     butterSmearTwoRight: "2.5px", // these values adjust the position of it
   },
   md: {
-    pancakeSize: "32px",
+    pancakeSize: "40px",
     travelDistance: "34px",
-    toggleHeight: "40px",
+    toggleHeight: "28px",
     toggleWidth: "72px",
     pancakeThickness: "2px",
     pancakeTwoOffset: "-3px",
@@ -67,15 +67,11 @@ export const PancakeStack = styled.div<HandleProps>`
     height: ${getScale("pancakeSize")};
     position: absolute;
     transition: 0.4s ease;
-    top: 2px;
-    left: 4px;
-    box-shadow: 0 ${getScale("pancakeThickness")} 0 ${getScale("pancakeThickness")} #fbbe7c;
+    top:-5px;
   }
 
   .pancake:nth-child(1) {
-    background: ${({ theme }) => theme.pancakeToggle.handleBackground};
-    box-shadow: 0 ${getScale("pancakeThickness")} 0 ${getScale("pancakeThickness")}
-      ${({ theme }) => theme.pancakeToggle.handleShadow};
+    background: ${({ theme }) => theme.colors.inputBtn};
   }
 
   .pancake:nth-child(2) {
@@ -142,8 +138,8 @@ export const PancakeInput = styled.input<InputProps>`
   }
 
   &:checked + label .pancake:nth-child(1) {
-    background: #fff;
-    box-shadow: 0 ${getScale("pancakeThickness")} 0 ${getScale("pancakeThickness")} #bdc2c4;
+    background: ${({ theme }) => theme.colors.inputBtn};
+    box-shadow: none;
     transition-delay: 0.2s;
   }
 
@@ -166,7 +162,7 @@ export const PancakeInput = styled.input<InputProps>`
 export const PancakeLabel = styled.label<PancakeToggleProps>`
   width: ${getScale("toggleWidth")};
   height: ${getScale("toggleHeight")};
-  background: ${({ theme, checked }) => theme.colors[checked ? "success" : "input"]};
+  background: ${({ theme, checked }) => theme.colors[checked ? "success" : "inputSmall"]};
   box-shadow: ${({ theme }) => theme.shadows.inset};
   display: inline-block;
   border-radius: 50px;

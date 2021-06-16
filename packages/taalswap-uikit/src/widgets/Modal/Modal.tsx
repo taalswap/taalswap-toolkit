@@ -8,21 +8,19 @@ const Modal: React.FC<ModalProps> = ({
   onDismiss,
   onBack,
   children,
-  hideCloseButton = false,
-  bodyPadding = "24px",
   headerBackground = "transparent",
-  minWidth = "320px",
+  minWidth = "444px",
+  padding = "24px",
   ...props
 }) => (
   <ModalContainer minWidth={minWidth} {...props}>
-    <ModalHeader background={headerBackground}>
+    <ModalHeader background={headerBackground} style={{borderBottom:"none",padding:"24px 24px 0"}}>
       <ModalTitle>
         {onBack && <ModalBackButton onBack={onBack} />}
         <Heading>{title}</Heading>
       </ModalTitle>
-      {!hideCloseButton && <ModalCloseButton onDismiss={onDismiss} />}
     </ModalHeader>
-    <ModalBody p={bodyPadding}>{children}</ModalBody>
+    <ModalBody p={padding}>{children}</ModalBody>
   </ModalContainer>
 );
 

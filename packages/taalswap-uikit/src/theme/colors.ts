@@ -21,6 +21,7 @@ export const lightColors: Colors = {
   background: "FFFFFF",
   backgroundDisabled: "#E9EAEB",
   backgroundAlt: "#FFFFFF",
+  listBg:"rgba(0, 171, 85, 0.08)",
   detailsBg: '#EBF8F2',
   cardBorder: "#E7E3EB",
   contrast: "#191326",
@@ -35,6 +36,7 @@ export const lightColors: Colors = {
   text: "#212b36",
   textDisabled: "#BDC2C4",
   textSubtle: "#637381",
+  logoColor: "#000000",
   disabled: "#E9EAEB",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
@@ -54,6 +56,7 @@ export const darkColors: Colors = {
   background: "#161C24",
   backgroundDisabled: "rgb(33, 43, 54)",
   backgroundAlt: "rgb(33, 43, 54)",
+  listBg:"rgba(0, 171, 85, 0.16)",
   detailsBg: '#161C24',
   cardBorder: "#383241",
   contrast: "#FFFFFF",
@@ -69,6 +72,7 @@ export const darkColors: Colors = {
   text: "#F4EEFF",
   textDisabled: "#666171",
   textSubtle: "#fff",
+  logoColor: "#fff",
   disabled: "#524B63",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
