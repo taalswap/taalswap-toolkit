@@ -51,10 +51,13 @@ const PanelFooter: React.FC<Props> = ({
   if (!isPushed) {
     return (
       <Container>
-        <IconButton variant="text" onClick={() => pushNav(true)}>
-          <CogIcon />
-        </IconButton>
-      </Container>
+      <Text color="rgb(145, 158, 171)" style={{fontSize:"14px",margin:"20px 0 48px",textAlign:"center"}}>&copy; All rights reserved.</Text>
+      <SocialEntry>
+        <Link style={{marginRight:"36px",cursor:"pointer"}}><img src={TwIcon} alt="tw_icon" /></Link>
+        <Link style={{marginRight:"36px",cursor:"pointer"}}><img src={PageIcon} alt="tw_icon" /></Link>
+        <Link style={{cursor:"pointer"}}><img src={MessageIcon} alt="tw_icon" /></Link>
+      </SocialEntry>
+    </Container>
     );
   }
 

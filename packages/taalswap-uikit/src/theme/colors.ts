@@ -66,7 +66,7 @@ export const darkColors: Colors = {
   input: "#454F5B",
   inputSecondary: "#262130",
   inputSmall: "#454F5B",
-  inputBtn: "rgb(33,43,54)",
+  inputBtn: "rgb(145, 158, 171)",
   primaryDark: "#0098A1",
   tertiary: "-internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));",
   text: "#F4EEFF",
