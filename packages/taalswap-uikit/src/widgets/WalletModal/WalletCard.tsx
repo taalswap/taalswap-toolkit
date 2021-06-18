@@ -29,7 +29,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => 
       >
       <div style={{display:"flex"}}>
       <Icon width="32px" />
-      <Text color="#1a1843" ml="16px">
+      <Text color="text" ml="16px">
         {title}
       </Text>
       </div>
