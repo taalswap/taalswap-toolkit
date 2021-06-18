@@ -34,24 +34,16 @@ const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
               <CardActionArea>
                 <Box sx={{ pt: 2, pb: 1, px: 1.5, mb: 4 }}>
                   {[48, 32, 20].map((size, index) => (
-                    <div
-                      style={{
-                        marginBottom: 0.75,
+                    <Box
+                      key={size}
+                      sx={{
+                        mb: "0.75",
                         height: size,
-                        borderRadius: 0.75,
+                        borderRadius: "0.75",
+                        // opacity: (index == "0" && "0.72") || (index == "1" && "0.32") || (index == "2" && "0.16"),
                         backgroundColor: isDark ? "primary.main" : "grey.500",
                       }}
                     />
-                    // <Box
-                    //   key={size}
-                    //   sx={{
-                    //     mb: 0.75,
-                    //     height: size,
-                    //     borderRadius: 0.75,
-                    //     opacity: (index === 0 && 0.72) || (index === 1 && 0.32) || (index === 2 && 0.16),
-                    //     backgroundColor: themeMode === mode ? "primary.main" : "grey.500",
-                    //   }}
-                    // />
                   ))}
                 </Box>
                 <Box
