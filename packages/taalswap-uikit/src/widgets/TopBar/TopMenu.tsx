@@ -75,8 +75,7 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
       </li>
       <li>
         <Link href="http://localhost:3001" style={{ textDecoration: "none" }}>
-          <span className="connect_icon">connect_icon</span>
-          Coneect Wallet
+          <span className="connect_icon">connect_icon</span>Connect Wallet
         </Link>
       </li>
       <li>
