@@ -1,8 +1,6 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import Text from "../Text/Text";
-import bunnyHeadMain from "./svg/bunnyhead-main.svg";
-import bunnyHeadMax from "./svg/bunnyhead-max.svg";
 import bunnyButt from "./svg/bunnybutt.svg";
 
 interface SliderLabelProps {
@@ -23,7 +21,6 @@ const getCursorStyle = ({ disabled = false }: DisabledProp) => {
 
 const getBaseThumbStyles = ({ isMax, disabled }: StyledInputProps) => `
   -webkit-appearance: none;
-  background-image: url(${isMax ? bunnyHeadMax : bunnyHeadMain});
   background-color: transparent;
   border: 0;
   cursor: ${getCursorStyle};
