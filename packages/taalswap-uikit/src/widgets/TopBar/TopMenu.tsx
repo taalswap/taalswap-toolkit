@@ -3,6 +3,7 @@ import Link from "../../components/Link/Link";
 import { Icon, InlineIcon } from "@iconify/react";
 import gitbookIcon from "@iconify-icons/simple-icons/gitbook";
 import linkExternal from "@iconify-icons/fe/link-external";
+import { marginRight } from "styled-system";
 
 const TopMenu = () => {
   const modalEl = useRef<HTMLDivElement>(null);
@@ -79,17 +80,17 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
       </li>
       <li>
         <Link href="https://taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
-          <span>
-            <Icon icon={linkExternal} width="24" />
-          </span>
+          {/* <span> */}
+          <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
+          {/* </span> */}
           IDO
         </Link>
       </li>
       <li>
         <Link href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" target="_blank" style={{ textDecoration: "none" }}>
-          <span>
-            <Icon icon={gitbookIcon} width="24" />
-          </span>
+          {/* <span> */}
+          <Icon icon={gitbookIcon} width="20" style={{ marginRight: "8px", color: "#637381" }} />
+          {/* </span> */}
           Docs
         </Link>
       </li>
