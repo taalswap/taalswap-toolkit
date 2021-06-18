@@ -10,6 +10,7 @@ import { NavProps } from "./types";
 // import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Languages from "./Languages";
+// import Settings from "./Settings";
 
 const Wrapper = styled.div`
   position: relative;
@@ -124,6 +125,7 @@ const Menu: React.FC<NavProps> = ({
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </span>
           <span style={{ padding: "12px", cursor: "pointer", textAlign: "center", margin: "0 24px" }}>
+            {/* <Settings isDark={isDark} toggleTheme={toggleTheme} /> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               focusable="false"
