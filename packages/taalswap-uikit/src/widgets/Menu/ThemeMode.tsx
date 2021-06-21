@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { Box, Grid, Radio, Paper, RadioGroup, CardActionArea, FormControlLabel } from "@material-ui/core";
+
+const CACHE_KEY = "IS_DARK";
 
 interface Props {
   isDark: boolean;
@@ -16,10 +18,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
   const classes = useStyles();
-  //   const { themeMode, selectMode } = useSettings();
+
+  const [themeMode, setThemeMode] = useState(isDark ? "dark" : "light");
+
+  useEffect(() => {
+    console.log(`isDark : ${isDark}`);
+    setThemeMode(isDark ? "dark" : "light");
+  }, [isDark]);
+  // let themeMode = isDark ? "dark" : "light";
 
   return (
-    // <RadioGroup name="themeMode" value={themeMode} onChange={selectMode} className={clsx(classes.root)}>
     <RadioGroup name="themeMode" className={clsx(classes.root)}>
       <Grid container spacing={2}>
         {["light", "dark"].map((mode) => (
@@ -28,23 +36,50 @@ const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
               sx={{
                 overflow: "hidden",
                 bgcolor: mode === "dark" ? "grey.900" : "common.white",
-                // boxShadow: (theme) => themeMode === mode && theme.shadows[25].z12,
+              }}
+              onChange={() => {
+                themeMode === "dark" && mode === "light" && toggleTheme(false);
+                themeMode === "light" && mode === "dark" && toggleTheme(true);
+                // if (themeMode === "light") {
+                //   mode === "light" ? null : toggleTheme(true);
+                // } else {
+                //   mode === "dark" ? toggleTheme(false) : null;
+                // }
               }}
             >
               <CardActionArea>
                 <Box sx={{ pt: 2, pb: 1, px: 1.5, mb: 4 }}>
-                  {[48, 32, 20].map((size, index) => (
-                    <Box
-                      key={size}
-                      sx={{
-                        mb: "0.75",
-                        height: size,
-                        borderRadius: "0.75",
-                        // opacity: (index == "0" && "0.72") || (index == "1" && "0.32") || (index == "2" && "0.16"),
-                        backgroundColor: isDark ? "primary.main" : "grey.500",
-                      }}
-                    />
-                  ))}
+                  <Box
+                    key="1"
+                    sx={{
+                      mb: 0.75,
+                      height: 48,
+                      borderRadius: 0.75,
+                      opacity: 0.72,
+                      backgroundColor: themeMode === mode ? "#00ab55" : "grey.500",
+                    }}
+                  />
+
+                  <Box
+                    key="2"
+                    sx={{
+                      mb: 0.75,
+                      height: 32,
+                      borderRadius: 0.75,
+                      opacity: 0.32,
+                      backgroundColor: themeMode === mode ? "#00ab55" : "grey.500",
+                    }}
+                  />
+                  <Box
+                    key="3"
+                    sx={{
+                      mb: 0.75,
+                      height: 20,
+                      borderRadius: 0.75,
+                      opacity: 0.16,
+                      backgroundColor: themeMode === mode ? "#00ab55" : "grey.500",
+                    }}
+                  />
                 </Box>
                 <Box
                   sx={{
@@ -53,10 +88,11 @@ const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
                     height: 4,
                     width: "32%",
                     borderRadius: 1,
-                    backgroundColor: "grey.50032",
+                    backgroundColor: "grey.500",
                   }}
                 />
-                {/* <FormControlLabel
+                <FormControlLabel
+                  label=""
                   value={mode}
                   control={<Radio />}
                   sx={{
@@ -67,18 +103,19 @@ const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
                     position: "absolute",
                     "& .MuiRadio-root": { display: "none" },
                   }}
-                /> */}
+                />
               </CardActionArea>
             </Paper>
 
-            <div
-              style={{
+            <Box
+              sx={{
+                border: "1px soild red",
                 marginTop: 2,
-                // mx: "auto",
+                mx: "auto",
                 borderRadius: "50%",
-                backgroundColor: "primary.main",
-                // width: themeMode === mode && 10,
-                // height: themeMode === mode && 10,
+                backgroundColor: "#00ab55",
+                width: themeMode === mode ? 10 : 0,
+                height: themeMode === mode ? 10 : 0,
               }}
             />
           </Grid>
