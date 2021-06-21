@@ -89,7 +89,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
 
       <div style={{ marginTop: "50px" }}>
         <MenuEntry key="ido">
-          <MenuLink href="https://taalswap.finance" target="_blank">
+          <MenuLink href="https://ido.taalswap.finance" target="_blank">
             <Icon icon={linkExternal} width="24" />
             <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
               IDO

@@ -63,7 +63,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="https://taalswap.finance/" target="_blank" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="https://ido.taalswap.finance/" target="_blank" style={{ textDecoration: "none", fontSize: "14px" }}>
               IDO
             </Link>
           </div>
