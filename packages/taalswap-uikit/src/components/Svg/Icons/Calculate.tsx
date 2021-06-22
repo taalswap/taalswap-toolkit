@@ -4,13 +4,39 @@ import { SvgProps } from "../types";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <Svg viewBox="0 0 24 24" {...props}>
-      <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19Z" />
-      <path d="M11.25 7.72H6.25V9.22H11.25V7.72Z" />
-      <path d="M18 15.75H13V17.25H18V15.75Z" />
-      <path d="M18 13.25H13V14.75H18V13.25Z" />
-      <path d="M8 18H9.5V16H11.5V14.5H9.5V12.5H8V14.5H6V16H8V18Z" />
-      <path d="M14.09 10.95L15.5 9.54L16.91 10.95L17.97 9.89L16.56 8.47L17.97 7.06L16.91 6L15.5 7.41L14.09 6L13.03 7.06L14.44 8.47L13.03 9.89L14.09 10.95Z" />
+    <Svg viewBox="0 0 18 18" {...props}>
+  <g id="그룹_771" data-name="그룹 771" transform="translate(-783.5 -709.5)">
+    <rect id="사각형_76" data-name="사각형 76" width="12" height="14" rx="1" transform="translate(784 710)" fill="#fff" stroke="#637381" stroke-width="1"/>
+    <g id="사각형_111" data-name="사각형 111" transform="translate(786 712)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="8" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="7" height="3" fill="none"/>
+    </g>
+    <g id="사각형_112" data-name="사각형 112" transform="translate(786 717)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="사각형_113" data-name="사각형 113" transform="translate(789 717)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="사각형_114" data-name="사각형 114" transform="translate(792 717)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="사각형_115" data-name="사각형 115" transform="translate(786 720)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="사각형_116" data-name="사각형 116" transform="translate(789 720)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+    <g id="사각형_117" data-name="사각형 117" transform="translate(792 720)" fill="#fff" stroke="#637381" stroke-width="1">
+      <rect width="2" height="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1" height="1" fill="none"/>
+    </g>
+  </g>
+
     </Svg>
   );
 };

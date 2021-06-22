@@ -4,9 +4,14 @@ import { SvgProps } from "../types";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" {...props}>
-      <path id="disclosure" d="M12.312-6.208a11,11,0,0,0-11-10.979,10.963,10.963,0,0,0-7.6,3.046l-2.19-2.19a.71.71,0,0,0-1.212.5v6.448a.71.71,0,0,0,.71.71H-2.53a.71.71,0,0,0,.5-1.212l-2.251-2.251a8.133,8.133,0,0,1,5.592-2.215A8.157,8.157,0,0,1,9.474-6.188,8.157,8.157,0,0,1,1.313,1.974,8.128,8.128,0,0,1-3.758.21,1.066,1.066,0,0,0-5.173.3l-.5.5a1.064,1.064,0,0,0,.082,1.579A10.954,10.954,0,0,0,1.32,4.812,11.025,11.025,0,0,0,12.312-6.208ZM4.288-2.714l.436-.56a1.065,1.065,0,0,0-.187-1.494l-1.805-1.4V-10.8a1.065,1.065,0,0,0-1.065-1.065H.958A1.065,1.065,0,0,0-.107-10.8v6.017l2.9,2.256A1.065,1.065,0,0,0,4.288-2.714Z" transform="translate(9.688 17.188)" fill="#00ab55"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="18.293" height="18.293" viewBox="0 0 18.293 18.293">
+  <g id="그룹_761" data-name="그룹 761" transform="translate(-730.198 -98.949)">
+    <circle id="타원_21" data-name="타원 21" cx="8.146" cy="8.146" r="8.146" transform="translate(731.198 99.949)" fill="none" stroke="#00ab55" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="패스_109" data-name="패스 109" d="M739.833,104.5v4.978l3.771,1.791" transform="translate(-0.923 -0.628)" fill="none" stroke="#00ab55" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>
+
+
 
   );
 };
