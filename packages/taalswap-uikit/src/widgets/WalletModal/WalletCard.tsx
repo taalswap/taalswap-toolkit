@@ -27,9 +27,9 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => 
       style={{ justifyContent: "space-between",background:"initial",padding:"0"}}
       id={`wallet-connect-${title.toLocaleLowerCase()}`}
       >
-      <div style={{display:"flex"}}>
+      <div style={{display:"flex",alignItems:'center'}}>
       <Icon width="32px" />
-      <Text color="text" ml="16px">
+      <Text color="text" ml="16px" fontWeight='600'>
         {title}
       </Text>
       </div>
