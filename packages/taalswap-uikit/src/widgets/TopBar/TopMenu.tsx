@@ -79,7 +79,7 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
+        <Link href="https://ido.taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
           {/* <span> */}
           <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
           {/* </span> */}
