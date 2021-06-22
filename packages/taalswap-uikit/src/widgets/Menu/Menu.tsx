@@ -133,10 +133,18 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex style={{ alignItems: "center" }}>
-          <span style={{ cursor: "pointer", padding: "12px 8px" }}>
+          <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </span>
-          <span style={{ padding: "12px", cursor: "pointer", textAlign: "center", margin: "0 24px" }}>
+          <span
+            style={{
+              border: "1px soild red",
+              padding: "12px 8px",
+              cursor: "pointer",
+              textAlign: "center",
+              marginRight: "14px",
+            }}
+          >
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"

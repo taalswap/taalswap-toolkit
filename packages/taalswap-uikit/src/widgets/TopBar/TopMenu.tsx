@@ -17,7 +17,6 @@ const TopMenu = () => {
   };
 
   const handleClickOutside = ({ target }: any) => {
-    console.log(`outside result : ${showResults}`);
     if (showResults) {
       console.log("close");
       console.log(showResults);
