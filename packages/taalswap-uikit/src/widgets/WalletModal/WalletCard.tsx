@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
 import { connectorLocalStorageKey } from "./config";
 import { Login, Config } from "./types";
+import RightArrow from "./icons/arrowIcon"
 
 interface Props {
   walletConfig: Config;
@@ -34,16 +35,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => 
       </Text>
       </div>
       <div style={{paddingRight:"20px"}}>
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="7px" height="10px" viewBox="0 0 7 10"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,10.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M20 75 l23 -25 -23 -25 c-30 -32 -14 -32 25 0 l30 25 -30 25 c-39 32
--55 32 -25 0z"/>
-</g>
-</svg>
+      <RightArrow />
       </div>
     </Button>
     </fieldset>

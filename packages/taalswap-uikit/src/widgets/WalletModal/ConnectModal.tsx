@@ -6,6 +6,7 @@ import { Modal } from "../Modal";
 import WalletCard from "./WalletCard";
 import config from "./config";
 import { Login } from "./types";
+import CloseBtn from "./icons/closeBtn"
 
 interface Props {
   login: Login;
@@ -21,7 +22,10 @@ const HelpLink = styled(Link)`
 `;
 
 const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null }) => (
-  <Modal title="CONECT TO A WALLET" onDismiss={onDismiss}>
+  <Modal title="CONECT TO A WALLET" onDismiss={onDismiss} style={{position:'relative'}}>
+    <div style={{position:"absolute",right:"20px",top:'20px',cursor:'pointer'}}>
+      <CloseBtn onClick={onDismiss}/>
+    </div>
     {config.map((entry, index) => (
       <WalletCard
         key={entry.title}
