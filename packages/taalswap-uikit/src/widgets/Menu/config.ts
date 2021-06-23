@@ -30,10 +30,16 @@ export const links = [
         href: "https://exchange.pancakeswap.finance",
       },
       {
+        icon: "LiquidityIcon",
         label: "Liquidity",
         href: "https://exchange.pancakeswap.finance/#/pool",
       },
     ],
+  },
+  {
+    icon: "LiquidityIcon",
+    label: "Liquidity",
+    href: "https://exchange.pancakeswap.finance/#/pool",
   },
   {
     label: "Farms",
