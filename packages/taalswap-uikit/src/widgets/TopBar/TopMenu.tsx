@@ -58,7 +58,7 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
         </Link>
       </li>
       <li>
-        <Link href="http://localhost:3000/#/pool" style={{ textDecoration: "none" }}>
+        <Link href="http://localhost:3000/#/liquidity" style={{ textDecoration: "none" }}>
           <span className="liquidity_icon">liquidity_icon</span>Liquidity
         </Link>
       </li>
@@ -68,7 +68,7 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
         </Link>
       </li>
       <li>
-        <Link href="http://localhost:3001/pools" style={{ textDecoration: "none" }}>
+        <Link href="http://localhost:3001/staking" style={{ textDecoration: "none" }}>
           <span className="liquidity_icon">liquidity_icon</span>Staking
         </Link>
       </li>

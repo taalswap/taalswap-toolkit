@@ -48,7 +48,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="http://localhost:3000/#/pool" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="http://localhost:3000/#/liquidity" style={{ textDecoration: "none", fontSize: "14px" }}>
               Liquidity
             </Link>
           </div>
@@ -58,12 +58,16 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="/pools" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="/staking" style={{ textDecoration: "none", fontSize: "14px" }}>
               Staking
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="https://ido.taalswap.finance/" target="_blank" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link
+              href="https://ido.taalswap.finance/"
+              target="_blank"
+              style={{ textDecoration: "none", fontSize: "14px" }}
+            >
               IDO
             </Link>
           </div>
