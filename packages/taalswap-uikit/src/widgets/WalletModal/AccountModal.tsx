@@ -6,6 +6,7 @@ import Flex from "../../components/Box/Flex";
 import { Modal } from "../Modal";
 import CopyToClipboard from "./CopyToClipboard";
 import { connectorLocalStorageKey } from "./config";
+import CloseBtn from "./icons/closeBtn"
 
 interface Props {
   account: string;
@@ -14,7 +15,10 @@ interface Props {
 }
 
 const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null }) => (
-  <Modal title="Your wallet" onDismiss={onDismiss}>
+  <Modal title="Your wallet" onDismiss={onDismiss} style={{position:'relative'}}>
+    <div style={{position:"absolute",right:"20px",top:'20px',cursor:'pointer'}}>
+      <CloseBtn onClick={onDismiss}/>
+    </div>
     <Text
       fontSize="20px"
       bold
