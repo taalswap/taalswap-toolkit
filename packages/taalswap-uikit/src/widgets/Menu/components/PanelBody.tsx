@@ -7,10 +7,11 @@ import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel, LinkStatus } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import { PanelProps, PushedProps } from "../types";
-import MainLogo from "../../../components/Svg/Icons/MainLogo"
+import MainLogo from "../../../components/Svg/Icons/MainLogo";
 import { Icon, InlineIcon } from "@iconify/react";
 import gitbookIcon from "@iconify-icons/simple-icons/gitbook";
 import linkExternal from "@iconify-icons/fe/link-external";
+import { InfoIcon } from "../../Menu/icons";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
@@ -34,8 +35,8 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
 
   return (
     <Container>
-		<MainLogo />
-		{links.map((entry) => {
+      <MainLogo />
+      {links.map((entry) => {
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
@@ -74,15 +75,27 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
-            <MenuLink href={entry.href} onClick={handleClick}>
-              {iconElement}
-              <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
-              {entry.status && (
-                <LinkStatus color={entry.status.color} fontSize="14px">
-                  {entry.status.text}
-                </LinkStatus>
-              )}
-            </MenuLink>
+            {entry.icon === "InfoIcon" ? (
+              <MenuLink href={entry.href} target="_blank" onClick={handleClick}>
+                {iconElement}
+                <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
+                {entry.status && (
+                  <LinkStatus color={entry.status.color} fontSize="14px">
+                    {entry.status.text}
+                  </LinkStatus>
+                )}
+              </MenuLink>
+            ) : (
+              <MenuLink href={entry.href} onClick={handleClick}>
+                {iconElement}
+                <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
+                {entry.status && (
+                  <LinkStatus color={entry.status.color} fontSize="14px">
+                    {entry.status.text}
+                  </LinkStatus>
+                )}
+              </MenuLink>
+            )}
           </MenuEntry>
         );
       })}
