@@ -8,14 +8,22 @@ import { useWalletModal } from "../WalletModal";
 import { Login } from "../WalletModal/types";
 import { useTheme } from "styled-components";
 import Button from "../../components/Button/Button";
+import Languages from "../Menu/Languages";
+import { Language } from "../Menu";
+import Settings from "../Menu/Settings";
 
 interface Props {
   account?: string;
   login: Login;
   logout: () => void;
+  langs: Language[];
+  setLang: (language: Language) => void;
+  currentLang: string;
+  isDark: boolean;
+  toggleTheme: (isDark: boolean) => void;
 }
 
-const TopBar: React.FC<Props> = ({ account, login, logout }) => {
+const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, currentLang, isDark, toggleTheme }) => {
   const theme = useTheme();
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
@@ -83,6 +91,12 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
           {/* <div>
           <input type="button" value="Connect Wallet" className="connect_btn" />
         </div> */}
+          <div style={{ marginLeft: "20px" }}>
+            <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
+          </div>
+          <div style={{ marginLeft: "10px" }}>
+            <Settings isDark={isDark} toggleTheme={toggleTheme} />
+          </div>
           <div>
             {!account && (
               <Button
@@ -99,7 +113,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout }) => {
           </div>
         </div>
         <div className="mobile_menu" style={{ cursor: "pointer" }}>
-          <TopMenu />
+          <TopMenu account={account} login={login} logout={logout} />
         </div>
       </div>
     </div>

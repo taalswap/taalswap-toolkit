@@ -4,10 +4,29 @@ import { Icon, InlineIcon } from "@iconify/react";
 import gitbookIcon from "@iconify-icons/simple-icons/gitbook";
 import linkExternal from "@iconify-icons/fe/link-external";
 import { marginRight } from "styled-system";
+import { Login, useWalletModal } from "../WalletModal";
+import { Button } from "../../components/Button";
 
-const TopMenu = () => {
+interface Props {
+  account?: string;
+  login: Login;
+  logout: () => void;
+}
+
+interface modalPros {
+  account?: string;
+  onConnectModal: () => void;
+  onClose: () => void;
+}
+
+const TopMenu: React.FC<Props> = ({ account, login, logout }) => {
   const modalEl = useRef<HTMLDivElement>(null);
   const [showResults, setShowResults] = React.useState(Boolean);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
+
+  const onClose = () => {
+    setShowResults(false);
+  };
 
   const onClick = () => {
     const result = showResults;
@@ -18,9 +37,6 @@ const TopMenu = () => {
 
   const handleClickOutside = ({ target }: any) => {
     if (showResults) {
-      console.log("close");
-      console.log(showResults);
-      console.log("-----");
       setShowResults(false);
     }
     // if(showResults && !modalEl.current(target)) setShowResults(false)
@@ -38,12 +54,14 @@ const TopMenu = () => {
     <div>
       <input type="button" onClick={onClick} className="mobilenav_icon" />
       {/* {showResults ? <Results ref={modalEl} /> : null} */}
-      {showResults && <Results ref={modalEl} />}
+      {showResults && (
+        <Results ref={modalEl} account={account} onConnectModal={onPresentConnectModal} onClose={onClose} />
+      )}
     </div>
   );
 };
 
-const Results = React.forwardRef<HTMLDivElement>(() => (
+const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnectModal, onClose }) => (
   <div className="hide_menu" id="results">
     <span className="arrow_box">-</span>
     <ul style={{ listStyle: "none" }}>
@@ -73,9 +91,25 @@ const Results = React.forwardRef<HTMLDivElement>(() => (
         </Link>
       </li>
       <li>
-        <Link href="http://localhost:3001" style={{ textDecoration: "none" }}>
-          <span className="connect_icon">connect_icon</span>Connect Wallet
-        </Link>
+        {!account && (
+          <Link
+            onClick={() => {
+              onConnectModal();
+              onClose();
+            }}
+            style={{ textDecoration: "none" }}
+          >
+            <span className="connect_icon">connect_icon</span>Connect Wallet
+          </Link>
+          // <Button
+          //   scale="sm"
+          //   onClick={() => onConnectModal()}
+          //   style={{ backgroundColor: "#00ab55" }}
+          //   className="connect_btn"
+          // >
+          //   Connect Wallet
+          // </Button>
+        )}
       </li>
       <li>
         <Link href="https://ido.taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
