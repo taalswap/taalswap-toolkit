@@ -2,7 +2,7 @@ import { variants, scales } from "./types";
 
 export const styleVariants = {
   [variants.ROUND]: {
-    borderRadius: "32px",
+    borderRadius: "16px",
   },
   [variants.FLAT]: {
     borderRadius: 0,
