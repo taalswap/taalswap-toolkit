@@ -18,7 +18,7 @@ export const additionalColors = {
 export const lightColors: Colors = {
   ...baseColors,
   ...additionalColors,
-  background: "FFFFFF",
+  background: "#FFFFFF",
   backgroundDisabled: "#E9EAEB",
   backgroundAlt: "#FFFFFF",
   listBg:"rgba(0, 171, 85, 0.08)",
@@ -69,7 +69,7 @@ export const darkColors: Colors = {
   inputBtn: "rgb(145, 158, 171)",
   primaryDark: "#0098A1",
   tertiary: "-internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));",
-  text: "#F4EEFF",
+  text: "#FFFFFF",
   textDisabled: "#666171",
   textSubtle: "#fff",
   logoColor: "#fff",
