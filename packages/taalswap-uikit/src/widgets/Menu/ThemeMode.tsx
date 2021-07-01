@@ -22,7 +22,6 @@ const ThemeMode: React.FC<Props> = ({ isDark, toggleTheme }) => {
   const [themeMode, setThemeMode] = useState(isDark ? "dark" : "light");
 
   useEffect(() => {
-    console.log(`isDark : ${isDark}`);
     setThemeMode(isDark ? "dark" : "light");
   }, [isDark]);
   // let themeMode = isDark ? "dark" : "light";
