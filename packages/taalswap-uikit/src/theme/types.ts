@@ -65,6 +65,8 @@ export type Colors = {
   detailsBg:string;
   listBg:string;
   logoColor:string;
+  subSectionbg:string;
+  subSectionlibg:string;
 
   // Gradients
   gradients: Gradients;
