@@ -11,9 +11,7 @@ import Button from "../../components/Button/Button";
 import Languages from "../Menu/Languages";
 import { Language } from "../Menu";
 import Settings from "../Menu/Settings";
-import TaalIcon from "./images/taalswap.png";
-import { MetamaskIcon } from "../../components/Svg";
-import MetamaskButton from "../Menu/MetamaskButton";
+// import MetamaskButton from "../Menu/MetamaskButton";
 
 interface Props {
   account?: string;
@@ -91,12 +89,9 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
               Docs
             </Link>
           </div>
-          <div style={{ marginLeft: "30px" }}>
+          {/* <div style={{ marginLeft: "30px" }}>
             <MetamaskButton />
-          </div>
-          {/* <div>
-          <input type="button" value="Connect Wallet" className="connect_btn" />
-        </div> */}
+          </div> */}
           <div style={{ marginLeft: "20px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </div>
