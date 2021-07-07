@@ -51,22 +51,22 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="http://localhost:3000/#/swap" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="https://swap.taalswap.finance/#/swap" style={{ textDecoration: "none", fontSize: "14px" }}>
               Swap
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="http://localhost:3000/#/liquidity" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="https://swap.taalswap.finance/#/liquidity" style={{ textDecoration: "none", fontSize: "14px" }}>
               Liquidity
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="/farms" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="/farms" style={{ textDecoration: "none", fontSize: "14px", color:'#e8e8e8' }}>
               Farms
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href="/staking" style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href="/staking" style={{ textDecoration: "none", fontSize: "14px" ,color:'#e8e8e8'}}>
               Staking
             </Link>
           </div>

@@ -9,7 +9,7 @@ const MainLogo: React.FC<SvgProps> = (props) => {
 
   return (
     <div style={{ padding: "24px 20px", boxSizing: "border-box" }}>
-      <Link href="http://localhost:3001/" style={{ width: "150px", cursor: "pointer" }}>
+      <Link href="https://taalswap.finance/" style={{ width: "150px", cursor: "pointer" }}>
         <svg
           version="1.1"
           id="Layer_1"
