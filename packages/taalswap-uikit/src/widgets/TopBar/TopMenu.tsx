@@ -19,6 +19,9 @@ interface modalPros {
   onClose: () => void;
 }
 
+const frontendBaseUrl = process.env.REACT_APP_FRONTEND || "http://localhost:3001";
+const interfaceBaseUrl = process.env.REACT_APP_INTERFACE || "http://localhost:3000";
+
 const TopMenu: React.FC<Props> = ({ account, login, logout }) => {
   const modalEl = useRef<HTMLDivElement>(null);
   const [showResults, setShowResults] = React.useState(Boolean);
@@ -43,7 +46,6 @@ const TopMenu: React.FC<Props> = ({ account, login, logout }) => {
   };
 
   useEffect(() => {
-    console.log(`useEffect result : ${showResults}`);
     window.addEventListener("click", handleClickOutside);
     return () => {
       window.removeEventListener("click", handleClickOutside);
@@ -66,27 +68,27 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
     <span className="arrow_box">-</span>
     <ul style={{ listStyle: "none" }}>
       <li>
-        <Link href="https://taalswap.finance" style={{ color: "#00ab55", textDecoration: "none" }}>
+        <Link href={`${frontendBaseUrl}`} style={{ color: "#00ab55", textDecoration: "none" }}>
           <span className="home_icon">home_icon</span>Home
         </Link>
       </li>
       <li>
-        <Link href="https://swap.taalswap.finance/#/swap" style={{ textDecoration: "none" }}>
+        <Link href={`${interfaceBaseUrl}/#/swap`} style={{ textDecoration: "none" }}>
           <span className="swap_icon">swap_icon</span>Swap
         </Link>
       </li>
       <li>
-        <Link href="https://swap.taalswap.finance/#/liquidity" style={{ textDecoration: "none" }}>
+        <Link href={`${interfaceBaseUrl}/#/liquidity`} style={{ textDecoration: "none" }}>
           <span className="liquidity_icon">liquidity_icon</span>Liquidity
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.finance/farms" style={{ textDecoration: "none" }}>
+        <Link href={`${frontendBaseUrl}/farms`} style={{ textDecoration: "none" }}>
           <span className="farms_icon">Farms_icon</span>Farms
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.finance/staking" style={{ textDecoration: "none" }}>
+        <Link href={`${frontendBaseUrl}/staking`} style={{ textDecoration: "none" }}>
           <span className="liquidity_icon">liquidity_icon</span>Staking
         </Link>
       </li>
