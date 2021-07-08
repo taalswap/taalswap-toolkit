@@ -117,6 +117,12 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           </div>
         </div>
         <div className="mobile_menu" style={{ cursor: "pointer" }}>
+          <div style={{ marginRight: "10px" }}>
+            <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
+          </div>
+          <div style={{ marginRight: "10px" }}>
+            <Settings isDark={isDark} toggleTheme={toggleTheme} />
+          </div>
           <TopMenu account={account} login={login} logout={logout} />
         </div>
       </div>
