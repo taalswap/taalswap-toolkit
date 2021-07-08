@@ -46,6 +46,7 @@ const SettingIcon = () => {
       viewBox="0 0 24 24"
       color="#637381"
       style={{ transform: "rotate(360deg)" }}
+      className='mo_LangIcon'
     >
       <g fill="currentColor">
         <circle cx="12" cy="12" r="1.5"></circle>
