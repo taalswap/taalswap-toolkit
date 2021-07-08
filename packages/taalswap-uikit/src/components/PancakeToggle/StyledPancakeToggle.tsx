@@ -3,8 +3,8 @@ import { scales, PancakeToggleProps, HandleProps, InputProps, ScaleKeys } from "
 
 const scaleKeyValues = {
   sm: {
-    pancakeSize: "16px", // The size of a pancake (the handle)
-    travelDistance: "16px", // How far pancakes should travel horizontally
+    pancakeSize: "24px", // The size of a pancake (the handle)
+    travelDistance: "24px", // How far pancakes should travel horizontally
     toggleHeight: "20px", // General Height and
     toggleWidth: "36px", // Width of a toggle box
     pancakeThickness: "1px", // Bottom shadow of a pancake
@@ -20,6 +20,7 @@ const scaleKeyValues = {
     butterSmearOneLeft: "2.5px", // next to the butter block
     butterSmearTwoTop: "11px", // implemented with :before and :after
     butterSmearTwoRight: "2.5px", // these values adjust the position of it
+    marginTop:"-2px",
   },
   md: {
     pancakeSize: "40px",
@@ -39,6 +40,7 @@ const scaleKeyValues = {
     butterSmearOneLeft: "5px",
     butterSmearTwoTop: "22px",
     butterSmearTwoRight: "5px",
+    marginTop:"-5px",
   },
 };
 
@@ -67,7 +69,7 @@ export const PancakeStack = styled.div<HandleProps>`
     height: ${getScale("pancakeSize")};
     position: absolute;
     transition: 0.4s ease;
-    top:-5px;
+    top: ${getScale("marginTop")};
   }
 
   .pancake:nth-child(1) {

@@ -43,6 +43,7 @@ export const scaleKeys = {
   butterSmearOneLeft: "butterSmearOneLeft",
   butterSmearTwoTop: "butterSmearTwoTop",
   butterSmearTwoRight: "butterSmearTwoRight",
+  marginTop: "marginTop",
 } as const;
 
 export type ScaleKeys = typeof scaleKeys[keyof typeof scaleKeys];

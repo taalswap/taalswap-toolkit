@@ -9,7 +9,7 @@ const Modal: React.FC<ModalProps> = ({
   onBack,
   children,
   headerBackground = "transparent",
-  minWidth = "444px",
+  minWidth = "330px",
   padding = "24px",
   ...props
 }) => (

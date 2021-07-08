@@ -4,7 +4,7 @@ import { tags, scales, HeadingProps } from "./types";
 
 const style = {
   [scales.MD]: {
-    fontSize: "20px",
+    fontSize: "16px",
     fontSizeLg: "20px",
   },
   [scales.LG]: {

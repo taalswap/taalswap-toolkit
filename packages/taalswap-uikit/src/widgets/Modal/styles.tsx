@@ -45,12 +45,12 @@ export const ModalContainer = styled(Box)<{ minWidth: string }>`
   box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
   border: 1px solid ${({ theme }) => theme.colors.cardBorder};
   border-radius: 16px;
-  width: 100%;
+  width: calc(100% - 30px);
+  min-width:initial;
   z-index: ${({ theme }) => theme.zIndices.modal};
 
   ${({ theme }) => theme.mediaQueries.xs} {
-    width: auto;
-    min-width: ${({ minWidth }) => minWidth};
-    max-width: 100%;
+    width: 92%;
+    max-width: 444px;
   }
 `;

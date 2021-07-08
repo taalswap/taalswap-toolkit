@@ -15,7 +15,7 @@ interface Props {
 const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => {
   const { title, icon: Icon } = walletConfig;
   return (
-    <fieldset style={{boxSizing:"border-box",width:"100%",padding:"8px 0 8px 40px",border:"1px solid #dce0e4",borderRadius:"5px",marginBottom:"16px"}}>
+    <fieldset style={{boxSizing:"border-box",width:"100%",padding:"8px 0 8px 20px",border:"1px solid #dce0e4",borderRadius:"5px",marginBottom:"16px"}}>
       <legend></legend>
     <Button
       width="100%"
@@ -30,7 +30,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => 
       >
       <div style={{display:"flex",alignItems:'center'}}>
       <Icon width="32px" />
-      <Text color="text" ml="16px" fontWeight='600'>
+      <Text color="text" ml="16px" fontWeight='600' fontSize='16px'>
         {title}
       </Text>
       </div>
