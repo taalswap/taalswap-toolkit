@@ -36,7 +36,7 @@ const Languages: React.FC<Props> = ({ setLang, currentLang, langs }) => {
   return (
     <div>
       <IconButton onClick={handleClick}>
-        {currentLang === "ko" ? <img src={KoreanImg} /> : <img src={EnglishImg} />}
+        {currentLang === "ko" ? <img src={KoreanImg} className='mo_LangIcon'/> : <img src={EnglishImg} className='mo_LangIcon'/>}
       </IconButton>
       <Popover
         id={id}
