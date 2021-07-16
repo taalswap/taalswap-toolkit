@@ -1,6 +1,6 @@
 {
   "name": "taalswap-uikit",
-  "version": "0.35.11",
+  "version": "0.35.12",
   "description": "Set of UI components for taalswap projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
