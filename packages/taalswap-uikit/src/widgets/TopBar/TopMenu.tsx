@@ -6,7 +6,6 @@ import linkExternal from "@iconify-icons/fe/link-external";
 import { marginRight } from "styled-system";
 import { Login, useWalletModal } from "../WalletModal";
 import { Button } from "../../components/Button";
-import { InfoIcon } from "../Menu/icons";
 
 interface Props {
   account?: string;
@@ -116,9 +115,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
       </li>
       <li>
         <Link href="https://taalswap.info/home" style={{ textDecoration: "none" }}>
-          {/* <span> */}
-          <Icon icon={InfoIcon} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
-          {/* </span> */}
+          <span className="info_icon">info_icon</span>
           Info
         </Link>
       </li>
