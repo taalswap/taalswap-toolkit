@@ -102,7 +102,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
 
       <div style={{ marginTop: "50px" }}>
         <MenuEntry key="ido">
-          <MenuLink href="https://ido.taalswap.finance" target="_blank">
+          <MenuLink href="https://ido.taalswap.finance">
             <Icon icon={linkExternal} width="24" />
             <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
               IDO
@@ -110,7 +110,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           </MenuLink>
         </MenuEntry>
         <MenuEntry key="doc">
-          <MenuLink href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" target="_blank">
+          <MenuLink href="https://taalswap.gitbook.io/taalswap-docs-v-2-0">
             <Icon icon={gitbookIcon} width="24" />
             <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
               Docs

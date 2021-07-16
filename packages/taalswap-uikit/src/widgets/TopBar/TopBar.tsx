@@ -77,7 +77,6 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           <div style={{ marginLeft: "30px" }}>
             <Link
               href="https://ido.taalswap.finance/"
-              target="_blank"
               style={{ textDecoration: "none", fontSize: "14px" }}
             >
               IDO
@@ -86,7 +85,6 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           <div style={{ marginLeft: "30px" }}>
             <Link
               href="https://taalswap.gitbook.io/taalswap-docs-v-2-0"
-              target="_blank"
               style={{ textDecoration: "none", fontSize: "14px" }}
             >
               Docs
