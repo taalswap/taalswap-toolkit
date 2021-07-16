@@ -114,6 +114,14 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
         )}
       </li>
       <li>
+        <Link href="https://taalswap.info/home" style={{ textDecoration: "none" }}>
+          {/* <span> */}
+          <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
+          {/* </span> */}
+          Info
+        </Link>
+      </li>
+      <li>
         <Link href="https://ido.taalswap.finance" style={{ textDecoration: "none" }}>
           {/* <span> */}
           <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
