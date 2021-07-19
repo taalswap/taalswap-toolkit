@@ -114,7 +114,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
         )}
       </li>
       <li>
-        <Link href="https://ido.taalswap.finance" target="_blank" style={{ textDecoration: "none" }}>
+        <Link href="https://ido.taalswap.finance" style={{ textDecoration: "none" }}>
           {/* <span> */}
           <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
           {/* </span> */}
@@ -122,7 +122,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" target="_blank" style={{ textDecoration: "none" }}>
+        <Link href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" style={{ textDecoration: "none" }}>
           {/* <span> */}
           <Icon icon={gitbookIcon} width="20" style={{ marginRight: "8px", color: "#637381" }} />
           {/* </span> */}
