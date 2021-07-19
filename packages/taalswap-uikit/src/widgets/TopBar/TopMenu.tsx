@@ -92,8 +92,9 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
           <span className="liquidity_icon">liquidity_icon</span>Staking
         </Link>
       </li> */}
-      <li>
-        {!account && (
+
+      {!account && (
+        <li>
           <Link
             onClick={() => {
               onConnectModal();
@@ -103,24 +104,22 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
           >
             <span className="connect_icon">connect_icon</span>Connect Wallet
           </Link>
-          // <Button
-          //   scale="sm"
-          //   onClick={() => onConnectModal()}
-          //   style={{ backgroundColor: "#00ab55" }}
-          //   className="connect_btn"
-          // >
-          //   Connect Wallet
-          // </Button>
-        )}
-      </li>
+        </li>
+      )}
+
       <li>
         <Link href="https://taalswap.info/home" style={{ textDecoration: "none" }}>
-          {/* <span> */}
-          <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
-          {/* </span> */}
-          Info
+          <span className="info_icon">info_icon</span>Info
         </Link>
       </li>
+      {/* <li>
+        <Link href="https://taalswap.info/home" style={{ textDecoration: "none" }}>
+        
+          <Icon icon={linkExternal} width="22" style={{ marginRight: "6px", color: "#637381", padding: "0" }} />
+        
+          Info
+        </Link>
+      </li> */}
       <li>
         <Link href="https://ido.taalswap.finance" style={{ textDecoration: "none" }}>
           {/* <span> */}
