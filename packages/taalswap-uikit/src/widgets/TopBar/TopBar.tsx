@@ -75,18 +75,12 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
             </Link>
           </div> */}
           <div style={{ marginLeft: "30px" }}>
-            <Link
-              href="https://taalswap.info/home"
-              style={{ textDecoration: "none", fontSize: "14px" }}
-            >
+            <Link href="https://taalswap.info/home" style={{ textDecoration: "none", fontSize: "14px" }}>
               Info
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link
-              href="https://ido.taalswap.finance/"
-              style={{ textDecoration: "none", fontSize: "14px" }}
-            >
+            <Link href="https://ido.taalswap.finance/" style={{ textDecoration: "none", fontSize: "14px" }}>
               IDO
             </Link>
           </div>
