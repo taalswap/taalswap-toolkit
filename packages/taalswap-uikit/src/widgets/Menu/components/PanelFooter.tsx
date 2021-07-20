@@ -61,7 +61,7 @@ const PanelFooter: React.FC<Props> = ({
           <Link href="https://t.me/TaalSwapOfficial" target="_blank" style={{ marginRight: "36px", cursor: "pointer" }}>
             <img src={PageIcon} alt="tw_icon" />
           </Link>
-          <Link href="https://medium.com/taalswap" target="_blank" style={{ cursor: "pointer" }}>
+          <Link href="https://taalswap.medium.com" target="_blank" style={{ cursor: "pointer" }}>
             <img src={MessageIcon} alt="tw_icon" />
           </Link>
         </SocialEntry>
@@ -81,7 +81,7 @@ const PanelFooter: React.FC<Props> = ({
         <Link href="https://t.me/TaalSwapOfficial" target="_blank" style={{ marginRight: "36px", cursor: "pointer" }}>
           <img src={PageIcon} alt="tw_icon" />
         </Link>
-        <Link href="https://medium.com/taalswap" target="_blank" style={{ cursor: "pointer" }}>
+        <Link href="https://taalswap.medium.com" target="_blank" style={{ cursor: "pointer" }}>
           <img src={MessageIcon} alt="tw_icon" />
         </Link>
       </SocialEntry>
