@@ -52,7 +52,7 @@ const PanelFooter: React.FC<Props> = ({
     return (
       <Container>
         <Text color="rgb(145, 158, 171)" style={{ fontSize: "14px", margin: "20px 0 48px", textAlign: "center" }}>
-          &copy; All rights reserved.
+          {/* &copy; All rights reserved. */}
         </Text>
         <SocialEntry>
           <Link href="https://twitter.com/taal_fi" target="_blank" style={{ marginRight: "36px", cursor: "pointer" }}>
@@ -72,7 +72,7 @@ const PanelFooter: React.FC<Props> = ({
   return (
     <Container>
       <Text color="rgb(145, 158, 171)" style={{ fontSize: "14px", margin: "20px 0 48px", textAlign: "center" }}>
-        &copy; All rights reserved.
+        {/* &copy; All rights reserved. */}
       </Text>
       <SocialEntry>
         <Link href="https://twitter.com/taal_fi" target="_blank" style={{ marginRight: "36px", cursor: "pointer" }}>
