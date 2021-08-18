@@ -22,7 +22,7 @@ const HelpLink = styled(Link)`
 `;
 
 const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null }) => (
-  <Modal title="CONECT TO A WALLET" onDismiss={onDismiss} style={{position:'relative'}}>
+  <Modal title="CONNECT TO A WALLET" onDismiss={onDismiss} style={{position:'relative'}}>
     <div style={{position:"absolute",right:"20px",top:'20px',cursor:'pointer'}}>
       <CloseBtn onClick={onDismiss}/>
     </div>
