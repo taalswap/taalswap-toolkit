@@ -12,6 +12,11 @@ import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Languages from "./Languages";
 import Settings from "./Settings";
+import Button from "../../components/Button/Button";
+import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
+import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
+import NotificationDot from "../../components/NotificationDot/NotificationDot";
+
 
 const Wrapper = styled.div`
   position: relative;
@@ -133,6 +138,16 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex style={{ alignItems: "center" }}>
+          <ButtonMenu>
+            <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
+              Mainnet
+            </ButtonMenuItem>
+            <NotificationDot>
+              <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
+              Klaytn
+              </ButtonMenuItem>
+            </NotificationDot>
+          </ButtonMenu>
           <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </span>

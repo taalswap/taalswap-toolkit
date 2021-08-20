@@ -14,6 +14,10 @@ import Settings from "../Menu/Settings";
 import TaalIcon from "./images/taalswap.png";
 import { MetamaskIcon } from "../../components/Svg";
 import MetamaskButton from "../Menu/MetamaskButton";
+import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
+import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
+import NotificationDot from "../../components/NotificationDot/NotificationDot";
+
 
 interface Props {
   account?: string;
@@ -49,6 +53,18 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
         </div>
         <div className="top_menu">
           <div>
+            <ButtonMenu>
+              <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
+                Mainnet
+              </ButtonMenuItem>
+              <NotificationDot>
+                <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
+                Klaytn
+                </ButtonMenuItem>
+              </NotificationDot>
+            </ButtonMenu>
+          </div>
+          <div style={{ marginLeft: "30px" }}>
             <Link href="/" style={{ color: "#00ab55", textDecoration: "none", fontSize: "14px" }}>
               Home
             </Link>
