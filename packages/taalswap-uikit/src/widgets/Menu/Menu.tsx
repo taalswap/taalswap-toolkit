@@ -181,6 +181,7 @@ const Menu: React.FC<NavProps> = ({
     console.log(event.target.name);
     console.log(event.target.checked);
     setChainId(event.target.checked);
+    window.localStorage.setItem("refresh", 'true')
   };
 
   return (
