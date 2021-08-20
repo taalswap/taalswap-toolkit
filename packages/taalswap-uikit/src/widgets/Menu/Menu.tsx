@@ -89,8 +89,9 @@ const Menu: React.FC<NavProps> = ({
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-  const [index, setIndex] = useState(0);
 
+  const chainId = window.localStorage.getItem("chainId");
+  const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
   useEffect(() => {
     const handleScroll = () => {
       const currentOffset = window.pageYOffset;
@@ -127,10 +128,17 @@ const Menu: React.FC<NavProps> = ({
     }
   }, [isMobile]);
 
+  useEffect(() => {
+    index === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");
+    // login(ConnectorNames.Injected);
+  }, [index]);
+
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
-  const handleClick = (newIndex: number) => setIndex(newIndex);
+  const handleClick = (newIndex: number) => {
+    setIndex(newIndex);
+  };
 
   return (
     <Wrapper>
@@ -147,9 +155,8 @@ const Menu: React.FC<NavProps> = ({
           </span> */}
           <ButtonMenu activeIndex={index} onItemClick={handleClick}>
             <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Mainnet</ButtonMenuItem>
-            {/* <NotificationDot> */}
+
             <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
-            {/* </NotificationDot> */}
           </ButtonMenu>
           <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
