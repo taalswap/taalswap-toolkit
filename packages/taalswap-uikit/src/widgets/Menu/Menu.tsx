@@ -145,10 +145,6 @@ const Menu: React.FC<NavProps> = ({
   }, [isMobile]);
 
   useEffect(() => {
-    index === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");
-  }, [index]);
-
-  useEffect(() => {
     switch (chainId) {
       case "1":
         setIndex(0);
@@ -166,9 +162,12 @@ const Menu: React.FC<NavProps> = ({
   const homeLink = links.find((link) => link.label === "Home");
 
   const handleClick = (newIndex: number) => {
-    setIndex(newIndex);
-    account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
-    window.localStorage.setItem("refresh", 'true')
+    if (newIndex !== index) {
+      newIndex === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");   // Should be called before login
+      window.localStorage.setItem("refresh", 'true');  // Should be called before login
+      account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
+      setIndex(newIndex)
+    }
   };
 
   return (
