@@ -10,6 +10,8 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 // import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { ConnectorNames } from "../WalletModal/types";
+import { useWalletModal } from "../WalletModal";
 import Languages from "./Languages";
 import Settings from "./Settings";
 import Button from "../../components/Button/Button";
@@ -70,6 +72,18 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
+const getInitialChainId = () => {
+  const chainId = window.localStorage.getItem("chainId");
+  switch (chainId) {
+    case "1":
+      return 0;
+    case "1001":
+      return 1;
+    default:
+      return 0;
+  }
+};
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -89,9 +103,11 @@ const Menu: React.FC<NavProps> = ({
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
+  const { onPresentConnectModal } = useWalletModal(login, logout, account);
+  // const chainId = window.localStorage.getItem("chainId");
+  // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
+  const [index, setIndex] = useState(() => getInitialChainId());
 
-  const chainId = window.localStorage.getItem("chainId");
-  const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
   useEffect(() => {
     const handleScroll = () => {
       const currentOffset = window.pageYOffset;
@@ -138,6 +154,7 @@ const Menu: React.FC<NavProps> = ({
 
   const handleClick = (newIndex: number) => {
     setIndex(newIndex);
+    account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
   };
 
   return (
