@@ -11,6 +11,13 @@ import Button from "../../components/Button/Button";
 import Languages from "../Menu/Languages";
 import { Language } from "../Menu";
 import Settings from "../Menu/Settings";
+import TaalIcon from "./images/taalswap.png";
+import { MetamaskIcon } from "../../components/Svg";
+import MetamaskButton from "../Menu/MetamaskButton";
+import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
+import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
+import NotificationDot from "../../components/NotificationDot/NotificationDot";
+
 // import MetamaskButton from "../Menu/MetamaskButton";
 
 const frontendBaseUrl = process.env.REACT_APP_FRONTEND || "http://localhost:3001";
@@ -49,6 +56,18 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           </Link>
         </div>
         <div className="top_menu">
+          <div>
+            <ButtonMenu>
+              <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
+                Mainnet
+              </ButtonMenuItem>
+              <NotificationDot>
+                <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
+                  Klaytn
+                </ButtonMenuItem>
+              </NotificationDot>
+            </ButtonMenu>
+          </div>
           <div>
             <Link href={`${frontendBaseUrl}`} style={{ color: "#00ab55", textDecoration: "none", fontSize: "14px" }}>
               Home

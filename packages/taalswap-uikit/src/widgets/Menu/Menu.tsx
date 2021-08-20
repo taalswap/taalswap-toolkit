@@ -12,6 +12,11 @@ import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Languages from "./Languages";
 import Settings from "./Settings";
+import Button from "../../components/Button/Button";
+import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
+import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
+import NotificationDot from "../../components/NotificationDot/NotificationDot";
+
 // import MetamaskButton from "./MetamaskButton";
 
 const Wrapper = styled.div`
@@ -137,7 +142,17 @@ const Menu: React.FC<NavProps> = ({
           {/* <span style={{ cursor: "pointer", marginRight: "14px" }}>
             <MetamaskButton />
           </span> */}
-          <span style={{ cursor: "pointer", padding: "12px 8px" }}>
+          <ButtonMenu>
+            <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
+              Mainnet
+            </ButtonMenuItem>
+            <NotificationDot>
+              <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
+              Klaytn
+              </ButtonMenuItem>
+            </NotificationDot>
+          </ButtonMenu>
+          <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </span>
           <span
