@@ -19,20 +19,56 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
     <div style={{position:"absolute",right:"20px",top:'20px',cursor:'pointer'}}>
       <CloseBtn onClick={onDismiss}/>
     </div>
-    <Text
-      fontSize="20px"
-      bold
-      style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", marginBottom: "8px" }}
-    >
-      {account}
-    </Text>
+    <div style={{ display: "flex"}}>
+      <Text
+        fontSize="20px"
+        bold
+        style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", marginBottom: "8px", width: "90%",float: "left" }}
+      >
+        {account}
+      </Text>
+      <CopyToClipboard toCopy={account}></CopyToClipboard>
+    </div>
     <Flex mb="32px">
-      <LinkExternal small href={`https://ropsten.etherscan.io/address/${account}`} mr="16px">
-        View on EtherScan
+      <LinkExternal small href={`https://etherscan.io/address/${account}`} mr="16px">
+        View on Etherscan
       </LinkExternal>
-      <CopyToClipboard toCopy={account}>Copy Address</CopyToClipboard>
+      <LinkExternal small href={`#`} mr="16px">
+        View on Klaytnscope
+      </LinkExternal>
     </Flex>
-    <Flex justifyContent="center">
+    <Flex justifyContent="space-between">
+
+      <Button
+        scale="sm"
+        variant="secondary"
+        style={{ minWidth: "88px",
+          minHeight:"40px",
+          backgroundColor: "#00AB55",
+          color:"#fff",
+          fontSize:"10px",
+          marginRight:"10px",
+          lineHeight:"1.2",
+      }}
+      >
+        Ethereum<br/>
+        Mainnet
+      </Button>
+      <Button
+        scale="sm"
+        variant="secondary"
+        style={{  minWidth: "88px",
+          minHeight:"40px",
+          backgroundColor: "#00AB55",
+          color:"#fff",
+          fontSize:"10px",
+          lineHeight:"1.2",
+          marginRight:"auto"
+        }}
+      >
+        Klaytn<br/>
+        Cypress
+      </Button>
       <Button
         scale="sm"
         variant="secondary"
@@ -41,6 +77,10 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
           window.localStorage.removeItem(connectorLocalStorageKey);
           onDismiss();
         }}
+        style={{ minWidth: "88px",
+          height:'auto',
+          minHeight:"40px",
+          fontSize:"14px" }}
       >
         Logout
       </Button>

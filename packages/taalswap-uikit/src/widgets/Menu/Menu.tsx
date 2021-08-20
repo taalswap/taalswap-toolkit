@@ -11,47 +11,15 @@ import { NavProps } from "./types";
 // import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import { ConnectorNames } from "../WalletModal/types";
+import { useWalletModal } from "../WalletModal";
 import Languages from "./Languages";
 import Settings from "./Settings";
-import Switch, { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
-import { withStyles, Theme, createStyles } from "@material-ui/core/styles";
-// import MetamaskButton from "./MetamaskButton";
+import Button from "../../components/Button/Button";
+import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
+import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
+import NotificationDot from "../../components/NotificationDot/NotificationDot";
 
-const AntSwitch = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: 28,
-      height: 16,
-      padding: 0,
-      display: "flex",
-    },
-    switchBase: {
-      padding: 2,
-      color: theme.palette.grey[500],
-      "&$checked": {
-        transform: "translateX(12px)",
-        color: theme.palette.common.white,
-        "& + $track": {
-          opacity: 1,
-          backgroundColor: theme.palette.primary.main,
-          borderColor: theme.palette.primary.main,
-        },
-      },
-    },
-    thumb: {
-      width: 12,
-      height: 12,
-      boxShadow: "none",
-    },
-    track: {
-      border: `1px solid ${theme.palette.grey[500]}`,
-      borderRadius: 16 / 2,
-      opacity: 1,
-      backgroundColor: theme.palette.common.white,
-    },
-    checked: {},
-  })
-)(Switch);
+// import MetamaskButton from "./MetamaskButton";
 
 const Wrapper = styled.div`
   position: relative;
@@ -104,6 +72,18 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
+const getInitialChainId = () => {
+  const chainId = window.localStorage.getItem("chainId");
+  switch (chainId) {
+    case "1":
+      return 0;
+    case "1001":
+      return 1;
+    default:
+      return 0;
+  }
+};
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -123,13 +103,10 @@ const Menu: React.FC<NavProps> = ({
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedC: true,
-  });
-  const id = window.localStorage.getItem("chainId");
-  const [chainId, setChainId] = useState(id === "1" ? false : true);
+  const { onPresentConnectModal } = useWalletModal(login, logout, account);
+  // const chainId = window.localStorage.getItem("chainId");
+  // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
+  const [index, setIndex] = useState(() => getInitialChainId());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -168,19 +145,16 @@ const Menu: React.FC<NavProps> = ({
   }, [isMobile]);
 
   useEffect(() => {
-    console.log(chainId);
-    chainId ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");
-    login(ConnectorNames.Injected);
-    console.log("2");
-  }, [chainId]);
+    index === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");
+    // login(ConnectorNames.Injected);
+  }, [index]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
-  const handleChainId = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.name);
-    console.log(event.target.checked);
-    setChainId(event.target.checked);
+  const handleClick = (newIndex: number) => {
+    setIndex(newIndex);
+    account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
     window.localStorage.setItem("refresh", 'true')
   };
 
@@ -197,12 +171,12 @@ const Menu: React.FC<NavProps> = ({
           {/* <span style={{ cursor: "pointer", marginRight: "14px" }}>
             <MetamaskButton />
           </span> */}
-          <span>
-            Main
-            <AntSwitch checked={chainId} onChange={handleChainId} name="chainId" />
-            Klay
-          </span>
-          <span style={{ cursor: "pointer", padding: "12px 8px" }}>
+          <ButtonMenu activeIndex={index} onItemClick={handleClick}>
+            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Mainnet</ButtonMenuItem>
+
+            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
+          </ButtonMenu>
+          <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
           </span>
           <span
