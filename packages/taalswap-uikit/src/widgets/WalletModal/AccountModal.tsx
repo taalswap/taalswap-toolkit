@@ -19,7 +19,7 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
     <div style={{position:"absolute",right:"20px",top:'20px',cursor:'pointer'}}>
       <CloseBtn onClick={onDismiss}/>
     </div>
-    <div>
+    <div style={{ display: "flex"}}>
       <Text
         fontSize="20px"
         bold
