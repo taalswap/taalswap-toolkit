@@ -72,8 +72,8 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
-const getInitialChainId = () => {
-  const chainId = window.localStorage.getItem("chainId");
+const getInitialChainId = (chainId: string | null) => {
+  // const chainId = window.localStorage.getItem("chainId");
   switch (chainId) {
     case "1":
       return 0;
@@ -104,9 +104,9 @@ const Menu: React.FC<NavProps> = ({
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
   const { onPresentConnectModal } = useWalletModal(login, logout, account);
-  // const chainId = window.localStorage.getItem("chainId");
+  const chainId = window.localStorage.getItem("chainId");
   // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
-  const [index, setIndex] = useState(() => getInitialChainId());
+  const [index, setIndex] = useState(() => getInitialChainId(chainId));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -146,8 +146,21 @@ const Menu: React.FC<NavProps> = ({
 
   useEffect(() => {
     index === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");
-    // login(ConnectorNames.Injected);
   }, [index]);
+
+  useEffect(() => {
+    switch (chainId) {
+      case "1":
+        setIndex(0);
+        break;
+      case "1001":
+        setIndex(1);
+        break;
+      default:
+        setIndex(0);
+        break;
+    }
+  }, [chainId]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
@@ -173,7 +186,6 @@ const Menu: React.FC<NavProps> = ({
           </span> */}
           <ButtonMenu activeIndex={index} onItemClick={handleClick}>
             <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Mainnet</ButtonMenuItem>
-
             <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
           </ButtonMenu>
           <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
