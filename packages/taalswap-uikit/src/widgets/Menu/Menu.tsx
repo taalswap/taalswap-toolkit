@@ -97,13 +97,14 @@ const Menu: React.FC<NavProps> = ({
   links,
   // profile,
   children,
+  blockchain,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-  const { onPresentConnectModal } = useWalletModal(login, logout, account);
+  const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain);
   const chainId = window.localStorage.getItem("chainId");
   // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
   const [index, setIndex] = useState(() => getInitialChainId(chainId));
@@ -163,7 +164,7 @@ const Menu: React.FC<NavProps> = ({
 
   const handleClick = (newIndex: number) => {
     if (newIndex !== index) {
-      newIndex === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", "1");   // Should be called before login
+      newIndex === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
       window.localStorage.setItem("refresh", 'true');  // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
       setIndex(newIndex)
@@ -201,7 +202,7 @@ const Menu: React.FC<NavProps> = ({
           >
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </span>
-          <UserBlock account={account} login={login} logout={logout} />
+          <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} />
         </Flex>
       </StyledNav>
       <BodyWrapper>

@@ -11,6 +11,7 @@ interface Props {
   account?: string;
   login: Login;
   logout: () => void;
+  blockchain: string;
 }
 
 interface modalPros {
@@ -22,10 +23,10 @@ interface modalPros {
 const frontendBaseUrl = process.env.REACT_APP_FRONTEND || "http://localhost:3001";
 const interfaceBaseUrl = process.env.REACT_APP_INTERFACE || "http://localhost:3000";
 
-const TopMenu: React.FC<Props> = ({ account, login, logout }) => {
+const TopMenu: React.FC<Props> = ({ account, login, logout, blockchain }) => {
   const modalEl = useRef<HTMLDivElement>(null);
   const [showResults, setShowResults] = React.useState(Boolean);
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain);
 
   const onClose = () => {
     setShowResults(false);

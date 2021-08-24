@@ -14,9 +14,10 @@ interface Props {
   logout: () => void;
   login: Login;
   onDismiss?: () => void;
+  blockchain: string;
 }
 
-const AccountModal: React.FC<Props> = ({ account, login, logout, onDismiss = () => null }) => (
+const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onDismiss = () => null }) => (
   <Modal title="Your wallet" onDismiss={onDismiss} style={{ position: "relative" }}>
     <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}>
       <CloseBtn onClick={onDismiss} />
@@ -60,7 +61,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, onDismiss = () 
           lineHeight: "1.2",
         }}
         onClick={() => {
-          window.localStorage.setItem("chainId", "1");
+          window.localStorage.setItem("chainId", blockchain);
           login(ConnectorNames.Injected);
           onDismiss();
         }}

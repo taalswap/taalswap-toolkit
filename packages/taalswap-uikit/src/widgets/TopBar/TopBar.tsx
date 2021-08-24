@@ -32,11 +32,12 @@ interface Props {
   currentLang: string;
   isDark: boolean;
   toggleTheme: (isDark: boolean) => void;
+  blockchain: string;
 }
 
-const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, currentLang, isDark, toggleTheme }) => {
+const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, currentLang, isDark, toggleTheme, blockchain }) => {
   const theme = useTheme();
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const [scrollPosition, setScrollPosition] = useState(0);
   const updateScroll = () => {
@@ -59,7 +60,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           <div>
             <ButtonMenu>
               <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
-                Mainnet
+                Ethereum
               </ButtonMenuItem>
               <NotificationDot>
                 <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
@@ -142,7 +143,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           <div style={{ marginRight: "10px" }}>
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </div>
-          <TopMenu account={account} login={login} logout={logout} />
+          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} />
         </div>
       </div>
     </div>
