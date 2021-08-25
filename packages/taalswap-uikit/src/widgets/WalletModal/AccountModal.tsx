@@ -17,6 +17,41 @@ interface Props {
   blockchain: string;
 }
 
+const renderExplorer = (blockchain: string, account: string) => {
+  const chainId = parseInt(blockchain, 10)
+  let url
+  let explorer
+  switch(chainId) {
+    case 1:
+      url = 'https://etherscan.io/address'
+      break
+    case 3:
+      url = 'https://ropsten.etherscan.io/address'
+      break
+    case 4:
+      url = 'https://rinkeby.etherscan.io/address'
+      break
+    case 1001:
+      url = 'https://baobab.scope.klaytn.com/address'
+      break
+    case 8217:
+      url = 'https://scope.klaytn.com/address'
+      break
+    default:
+      break
+  }
+  if (chainId > 1000) {
+    explorer = 'View on Scope'
+  } else {
+    explorer = 'View on Etherscan'
+  }
+  return (
+    <LinkExternal small href={`${url}/${account}`} mr="16px">
+      {`${explorer}`}
+    </LinkExternal>
+  )
+}
+
 const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onDismiss = () => null }) => (
   <Modal title="Your wallet" onDismiss={onDismiss} style={{ position: "relative" }}>
     <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}>
@@ -40,12 +75,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onD
       <CopyToClipboard toCopy={account}></CopyToClipboard>
     </div>
     <Flex mb="32px">
-      <LinkExternal small href={`https://etherscan.io/address/${account}`} mr="16px">
-        View on Etherscan
-      </LinkExternal>
-      <LinkExternal small href={`#`} mr="16px">
-        View on Klaytnscope
-      </LinkExternal>
+      { renderExplorer(blockchain, account) }
     </Flex>
     <Flex justifyContent="space-between">
       <Button
