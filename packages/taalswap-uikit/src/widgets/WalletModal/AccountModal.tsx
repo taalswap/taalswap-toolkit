@@ -17,8 +17,8 @@ interface Props {
   blockchain: string;
 }
 
-const renderExplorer = (blockchain: string, account: string) => {
-  const chainId = parseInt(blockchain, 10)
+const renderExplorer = (account: string) => {
+  const chainId = parseInt(window.localStorage.getItem("chainId") ?? "1")
   let url
   let explorer
   switch(chainId) {
@@ -32,10 +32,10 @@ const renderExplorer = (blockchain: string, account: string) => {
       url = 'https://rinkeby.etherscan.io/address'
       break
     case 1001:
-      url = 'https://baobab.scope.klaytn.com/address'
+      url = 'https://baobab.scope.klaytn.com/account'
       break
     case 8217:
-      url = 'https://scope.klaytn.com/address'
+      url = 'https://scope.klaytn.com/account'
       break
     default:
       break
@@ -75,7 +75,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onD
       <CopyToClipboard toCopy={account}></CopyToClipboard>
     </div>
     <Flex mb="32px">
-      { renderExplorer(blockchain, account) }
+      { renderExplorer(account) }
     </Flex>
     <Flex justifyContent="space-between">
       <Button
