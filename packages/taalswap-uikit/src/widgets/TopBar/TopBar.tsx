@@ -57,18 +57,18 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           </Link>
         </div>
         <div className="top_menu">
-          <div>
-            <ButtonMenu>
-              <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>
-                Ethereum
-              </ButtonMenuItem>
-              <NotificationDot>
-                <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>
-                  Klaytn
-                </ButtonMenuItem>
-              </NotificationDot>
-            </ButtonMenu>
-          </div>
+          {/*<div>*/}
+          {/*  <ButtonMenu>*/}
+          {/*    <ButtonMenuItem  style={{ height: '30px', padding: '0 7.5px', fontSize: '14px' }}>*/}
+          {/*      Ethereum*/}
+          {/*    </ButtonMenuItem>*/}
+          {/*    <NotificationDot>*/}
+          {/*      <ButtonMenuItem  style={{ height: '30px',padding: '0 7.5px', fontSize: '14px' }}>*/}
+          {/*        Klaytn*/}
+          {/*      </ButtonMenuItem>*/}
+          {/*    </NotificationDot>*/}
+          {/*  </ButtonMenu>*/}
+          {/*</div> */}
           <div>
             <Link href={`${frontendBaseUrl}`} style={{ color: "#00ab55", textDecoration: "none", fontSize: "14px" }}>
               Home
