@@ -185,7 +185,7 @@ const Menu: React.FC<NavProps> = ({
             <MetamaskButton />
           </span> */}
           <ButtonMenu activeIndex={index} onItemClick={handleClick}>
-            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Mainnet</ButtonMenuItem>
+            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Ethereum</ButtonMenuItem>
             <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
           </ButtonMenu>
           <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
