@@ -108,7 +108,7 @@ const Menu: React.FC<NavProps> = ({
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
   const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain);
-  const chainId = window.localStorage.getItem("chainId") ?? "1";
+  const chainId = window.localStorage.getItem("chainId") ?? blockchain;
   // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
   const [index, setIndex] = useState(() => getInitialChainId(chainId));
 
