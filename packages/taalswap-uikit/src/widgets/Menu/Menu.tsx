@@ -73,7 +73,6 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const getInitialChainId = (chainId: string | null) => {
-  // const chainId = window.localStorage.getItem("chainId");
   switch (chainId) {
     case "1":
     case "3":
@@ -166,11 +165,19 @@ const Menu: React.FC<NavProps> = ({
     }
   }, [chainId]);
 
+  const backupChainId = (chainId: string) => {
+    window.localStorage.setItem('prevChainId', chainId)
+  }
+
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
   const handleClick = (newIndex: number) => {
-    if (newIndex !== index) {
+    const curChainId = window.localStorage.getItem('chainId')
+    if (curChainId !== null) {
+      backupChainId(curChainId)
+    }
+    if (newIndex !== index || window.localStorage.getItem('chainId') === null) {
       newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
       window.localStorage.setItem("refresh", 'true');  // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
