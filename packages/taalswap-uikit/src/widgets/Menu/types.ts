@@ -62,5 +62,5 @@ export interface NavProps extends PanelProps {
   profile?: Profile;
   logout: () => void;
   blockchain: string;
-  klaytn: string
+  klaytn: string;
 }
