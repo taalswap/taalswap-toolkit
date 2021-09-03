@@ -76,8 +76,11 @@ const getInitialChainId = (chainId: string | null) => {
   // const chainId = window.localStorage.getItem("chainId");
   switch (chainId) {
     case "1":
+    case "3":
+    case "4":
       return 0;
     case "1001":
+    case "8217":
       return 1;
     default:
       return 0;
@@ -98,6 +101,7 @@ const Menu: React.FC<NavProps> = ({
   // profile,
   children,
   blockchain,
+  klaytn
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -148,9 +152,12 @@ const Menu: React.FC<NavProps> = ({
   useEffect(() => {
     switch (chainId) {
       case "1":
+      case "3":
+      case "4":
         setIndex(0);
         break;
       case "1001":
+      case "8217":
         setIndex(1);
         break;
       default:
@@ -164,7 +171,7 @@ const Menu: React.FC<NavProps> = ({
 
   const handleClick = (newIndex: number) => {
     if (newIndex !== index) {
-      newIndex === 1 ? window.localStorage.setItem("chainId", "1001") : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
+      newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
       window.localStorage.setItem("refresh", 'true');  // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
       setIndex(newIndex)

@@ -15,6 +15,7 @@ interface Props {
   login: Login;
   onDismiss?: () => void;
   blockchain: string;
+  klaytn: string;
 }
 
 const renderExplorer = (account: string) => {
@@ -52,7 +53,7 @@ const renderExplorer = (account: string) => {
   )
 }
 
-const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onDismiss = () => null }) => (
+const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, onDismiss = () => null }) => (
   <Modal title="Your wallet" onDismiss={onDismiss} style={{ position: "relative" }}>
     <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}>
       <CloseBtn onClick={onDismiss} />
@@ -113,7 +114,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, onD
           marginRight: "auto",
         }}
         onClick={() => {
-          window.localStorage.setItem("chainId", "1001");
+          window.localStorage.setItem("chainId", klaytn);
           login(ConnectorNames.Injected);
           onDismiss();
         }}
