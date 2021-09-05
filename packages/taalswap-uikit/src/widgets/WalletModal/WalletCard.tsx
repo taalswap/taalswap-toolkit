@@ -14,7 +14,6 @@ interface Props {
 
 const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => {
   const { title, icon: Icon } = walletConfig;
-  const chainId = window.localStorage.getItem('chainId')
   return (
     <fieldset style={{boxSizing:"border-box",width:"100%",padding:"8px 0 8px 20px",border:"1px solid #dce0e4",borderRadius:"5px",marginBottom:"16px"}}>
       <legend></legend>
@@ -22,8 +21,7 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss, mb }) => 
       width="100%"
       variant="tertiary"
       onClick={() => {
-        // login(walletConfig.connectorId);
-        login(chainId);
+        login(walletConfig.connectorId);
         window.localStorage.setItem(connectorLocalStorageKey, walletConfig.connectorId);
         onDismiss();
       }}
