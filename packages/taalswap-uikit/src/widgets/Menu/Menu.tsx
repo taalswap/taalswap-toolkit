@@ -100,14 +100,14 @@ const Menu: React.FC<NavProps> = ({
   // profile,
   children,
   blockchain,
-  klaytn
+  klaytn,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-  const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain);
+  const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain, klaytn);
   const chainId = window.localStorage.getItem("chainId") ?? blockchain;
   // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
   const [index, setIndex] = useState(() => getInitialChainId(chainId));
@@ -166,22 +166,20 @@ const Menu: React.FC<NavProps> = ({
   }, [chainId]);
 
   const backupChainId = (chainId: string) => {
-    window.localStorage.setItem('prevChainId', chainId)
-  }
+    window.localStorage.setItem("prevChainId", chainId);
+  };
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
 
   const handleClick = (newIndex: number) => {
-    const curChainId = window.localStorage.getItem('chainId')
-    if (curChainId !== null) {
-      backupChainId(curChainId)
-    }
-    if (newIndex !== index || window.localStorage.getItem('chainId') === null) {
-      newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
-      window.localStorage.setItem("refresh", 'true');  // Should be called before login
+    if (newIndex !== index) {
+      newIndex === 1
+        ? window.localStorage.setItem("chainId", klaytn)
+        : window.localStorage.setItem("chainId", blockchain); // Should be called before login
+      window.localStorage.setItem("refresh", "true"); // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
-      setIndex(newIndex)
+      setIndex(newIndex);
     }
   };
 
@@ -216,7 +214,7 @@ const Menu: React.FC<NavProps> = ({
           >
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </span>
-          <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} />
+          <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} />
         </Flex>
       </StyledNav>
       <BodyWrapper>
