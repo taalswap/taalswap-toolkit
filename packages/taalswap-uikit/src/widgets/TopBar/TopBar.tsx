@@ -36,7 +36,18 @@ interface Props {
   klaytn: string;
 }
 
-const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, currentLang, isDark, toggleTheme, blockchain, klaytn }) => {
+const TopBar: React.FC<Props> = ({
+  account,
+  login,
+  logout,
+  langs,
+  setLang,
+  currentLang,
+  isDark,
+  toggleTheme,
+  blockchain,
+  klaytn,
+}) => {
   const theme = useTheme();
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
@@ -85,7 +96,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
               Liquidity
             </Link>
           </div>
-          <div style={{ marginLeft: "30px" }}>
+          {/* <div style={{ marginLeft: "30px" }}>
             <Link href={`${frontendBaseUrl}/farms`} style={{ textDecoration: "none", fontSize: "14px" }}>
               Farms
             </Link>
@@ -94,7 +105,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
             <Link href={`${frontendBaseUrl}/staking`} style={{ textDecoration: "none", fontSize: "14px" }}>
               Staking
             </Link>
-          </div>
+          </div> */}
           <div style={{ marginLeft: "30px" }}>
             <Link href="https://taalswap.info/home" style={{ textDecoration: "none", fontSize: "14px" }}>
               Info
@@ -144,7 +155,7 @@ const TopBar: React.FC<Props> = ({ account, login, logout, langs, setLang, curre
           <div style={{ marginRight: "10px" }}>
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </div>
-          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn}/>
+          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} />
         </div>
       </div>
     </div>
