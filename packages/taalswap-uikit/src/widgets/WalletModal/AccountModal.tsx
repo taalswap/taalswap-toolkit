@@ -92,6 +92,8 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
           lineHeight: "1.2",
         }}
         onClick={() => {
+          const curChainId = window.localStorage.getItem("chainId") ?? klaytn
+          window.localStorage.setItem("prevChainId", curChainId)
           window.localStorage.setItem("chainId", blockchain);
           login(ConnectorNames.Injected);
           onDismiss();
@@ -114,6 +116,8 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
           marginRight: "auto",
         }}
         onClick={() => {
+          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+          window.localStorage.setItem("prevChainId", curChainId)
           window.localStorage.setItem("chainId", klaytn);
           login(ConnectorNames.Injected);
           onDismiss();

@@ -171,6 +171,7 @@ const Menu: React.FC<NavProps> = ({
 
   const handleClick = (newIndex: number) => {
     if (newIndex !== index) {
+      newIndex === 1 ? window.localStorage.setItem("prevChainId", blockchain) : window.localStorage.setItem("prevChainId", klaytn);
       newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
       window.localStorage.setItem("refresh", 'true');  // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
