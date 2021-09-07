@@ -73,7 +73,6 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const getInitialChainId = (chainId: string | null) => {
-  // const chainId = window.localStorage.getItem("chainId");
   switch (chainId) {
     case "1":
     case "3":
@@ -175,7 +174,7 @@ const Menu: React.FC<NavProps> = ({
       newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
       window.localStorage.setItem("refresh", 'true');  // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
-      setIndex(newIndex)
+      setIndex(newIndex);
     }
   };
 
