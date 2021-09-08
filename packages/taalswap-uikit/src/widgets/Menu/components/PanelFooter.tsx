@@ -13,6 +13,9 @@ import Link from "../../../components/Link/Link";
 import TwIcon from "./images/tw_icon.svg";
 import PageIcon from "./images/page_icon.svg";
 import MessageIcon from "./images/message_icon.svg";
+import Languages from "../Languages";
+import Settings from "../Settings";
+import { useMatchBreakpoints } from "../../../hooks";
 
 interface Props extends PanelProps, PushedProps {}
 
@@ -38,6 +41,14 @@ const SocialEntry = styled.div`
   padding: 0 0 58px;
 `;
 
+const ConfigDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 0px 35px;
+`;
+
 const PanelFooter: React.FC<Props> = ({
   isPushed,
   pushNav,
@@ -48,12 +59,14 @@ const PanelFooter: React.FC<Props> = ({
   langs,
   setLang,
 }) => {
+  const { isSm, isXs } = useMatchBreakpoints();
   if (!isPushed) {
     return (
       <Container>
         <Text color="rgb(145, 158, 171)" style={{ fontSize: "14px", margin: "20px 0 48px", textAlign: "center" }}>
           {/* &copy; All rights reserved. */}
         </Text>
+
         <SocialEntry>
           <Link href="https://twitter.com/taal_fi" target="_blank" style={{ marginRight: "36px", cursor: "pointer" }}>
             <img src={TwIcon} alt="tw_icon" />
@@ -82,6 +95,13 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
+      {(isXs || isSm) && (
+        <ConfigDiv>
+          <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
+          <Settings isDark={isDark} toggleTheme={toggleTheme} />
+        </ConfigDiv>
+      )}
+
       <Text color="rgb(145, 158, 171)" style={{ fontSize: "14px", margin: "20px 0 48px", textAlign: "center" }}>
         {/* &copy; All rights reserved. */}
       </Text>

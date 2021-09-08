@@ -102,7 +102,7 @@ const Menu: React.FC<NavProps> = ({
   blockchain,
   klaytn,
 }) => {
-  const { isXl } = useMatchBreakpoints();
+  const { isXl, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
@@ -170,9 +170,13 @@ const Menu: React.FC<NavProps> = ({
 
   const handleClick = (newIndex: number) => {
     if (newIndex !== index) {
-      newIndex === 1 ? window.localStorage.setItem("prevChainId", blockchain) : window.localStorage.setItem("prevChainId", klaytn);
-      newIndex === 1 ? window.localStorage.setItem("chainId", klaytn) : window.localStorage.setItem("chainId", blockchain);   // Should be called before login
-      window.localStorage.setItem("refresh", 'true');  // Should be called before login
+      newIndex === 1
+        ? window.localStorage.setItem("prevChainId", blockchain)
+        : window.localStorage.setItem("prevChainId", klaytn);
+      newIndex === 1
+        ? window.localStorage.setItem("chainId", klaytn)
+        : window.localStorage.setItem("chainId", blockchain); // Should be called before login
+      window.localStorage.setItem("refresh", "true"); // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
       setIndex(newIndex);
     }
@@ -191,24 +195,28 @@ const Menu: React.FC<NavProps> = ({
           {/* <span style={{ cursor: "pointer", marginRight: "14px" }}>
             <MetamaskButton />
           </span> */}
-          <ButtonMenu activeIndex={index} onItemClick={handleClick}>
-            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Ethereum</ButtonMenuItem>
-            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
-          </ButtonMenu>
-          <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
-            <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
+          <span style={{ padding: "12px" }}>
+            <ButtonMenu scale="xs" activeIndex={index} onItemClick={handleClick}>
+              <ButtonMenuItem style={{ height: "30px", fontSize: "13x" }}>Ethereum</ButtonMenuItem>
+              <ButtonMenuItem style={{ height: "30px", fontSize: "13px" }}>Klaytn</ButtonMenuItem>
+            </ButtonMenu>
           </span>
-          <span
-            style={{
-              border: "1px soild red",
-              padding: "12px 8px",
-              cursor: "pointer",
-              textAlign: "center",
-              marginRight: "14px",
-            }}
-          >
-            <Settings isDark={isDark} toggleTheme={toggleTheme} />
-          </span>
+          {!isSm && !isXs && (
+            <>
+              <span style={{ cursor: "pointer" }}>
+                <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
+              </span>
+              <span
+                style={{
+                  cursor: "pointer",
+                  textAlign: "center",
+                }}
+              >
+                <Settings isDark={isDark} toggleTheme={toggleTheme} />
+              </span>
+            </>
+          )}
+
           <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} />
         </Flex>
       </StyledNav>
