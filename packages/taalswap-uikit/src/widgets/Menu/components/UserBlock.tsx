@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../../components/Button/Button";
 import { useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
+import styled from "styled-components";
 
 interface Props {
   account?: string;
@@ -10,13 +11,22 @@ interface Props {
   blockchain: string;
 }
 
+const UserButton = styled(Button)`
+  
+  @media screen and ( max-width:500px ){
+    max-width: 84px;  
+    font-size: 12px;
+  }
+`;
+
+
 const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   return (
     <div>
       {account ? (
-        <Button
+        <UserButton
           scale="sm"
           variant="tertiary"
           onClick={() => {
@@ -24,9 +34,9 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain }) => {
           }}
         >
           {accountEllipsis}
-        </Button>
+        </UserButton>
       ) : (
-        <Button
+        <UserButton
           scale="sm"
           onClick={() => {
             onPresentConnectModal();
@@ -34,7 +44,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain }) => {
           style={{ backgroundColor: "#00ab55",padding:"6px 16px",borderRadius:"8px",fontSize:"14px",height:"36px" }}
         >
           Connect Wallet
-        </Button>
+        </UserButton>
       )}
     </div>
   );

@@ -72,6 +72,23 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
+const MenuButtonSpan = styled.div`
+  border: 1px soild red;
+  cursor: pointer;
+  text-align: center;
+`;
+
+const ButtonToggle = styled(ButtonMenuItem)`
+  height: 30px;
+  padding: 0 7.5px;
+  font-size: 14px;
+
+  @media screen and ( max-width:500px ){
+    font-size: 10px;
+  }
+`;
+
+
 const getInitialChainId = (chainId: string | null) => {
   // const chainId = window.localStorage.getItem("chainId");
   switch (chainId) {
@@ -185,23 +202,15 @@ const Menu: React.FC<NavProps> = ({
             <MetamaskButton />
           </span> */}
           <ButtonMenu activeIndex={index} onItemClick={handleClick}>
-            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Ethereum</ButtonMenuItem>
-            <ButtonMenuItem style={{ height: "30px", padding: "0 7.5px", fontSize: "14px" }}>Klaytn</ButtonMenuItem>
+            <ButtonToggle>Ethereum</ButtonToggle>
+            <ButtonToggle>Klaytn</ButtonToggle>
           </ButtonMenu>
-          <span style={{ border: "1px soild red", cursor: "pointer", padding: "12px 8px" }}>
+          <MenuButtonSpan>
             <Languages langs={langs} setLang={setLang} currentLang={currentLang} />
-          </span>
-          <span
-            style={{
-              border: "1px soild red",
-              padding: "12px 8px",
-              cursor: "pointer",
-              textAlign: "center",
-              marginRight: "14px",
-            }}
-          >
+          </MenuButtonSpan>
+          <MenuButtonSpan>
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
-          </span>
+          </MenuButtonSpan>
           <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} />
         </Flex>
       </StyledNav>

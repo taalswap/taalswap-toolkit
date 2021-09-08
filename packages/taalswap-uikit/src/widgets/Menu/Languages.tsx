@@ -59,9 +59,9 @@ const Languages: React.FC<Props> = ({ setLang, currentLang, langs }) => {
             >
               <ListItemIcon>
                 {lang.code === "ko" ? (
-                  <Box component="img" src={KoreanImg} />
+                  <Box component="img" src={KoreanImg} style={{minWidth: "24px"}} />
                 ) : (
-                  <Box component="img" src={EnglishImg} />
+                  <Box component="img" src={EnglishImg} style={{minWidth: "24px"}} />
                 )}
               </ListItemIcon>
 
