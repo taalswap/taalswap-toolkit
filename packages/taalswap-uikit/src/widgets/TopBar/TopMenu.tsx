@@ -76,7 +76,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
       </li>
       <li>
         <Link href={`${interfaceBaseUrl}/#/swap`} style={{ textDecoration: "none" }}>
-          <span className="swap_icon">swap_icon</span>Swap
+          <span className="swap_icon">swap_icon</span>X-Swap
         </Link>
       </li>
       <li>
@@ -84,7 +84,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
           <span className="liquidity_icon">liquidity_icon</span>Liquidity
         </Link>
       </li>
-      {/* <li>
+      <li>
         <Link href={`${frontendBaseUrl}/farms`} style={{ textDecoration: "none" }}>
           <span className="farms_icon">Farms_icon</span>Farms
         </Link>
@@ -93,7 +93,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
         <Link href={`${frontendBaseUrl}/staking`} style={{ textDecoration: "none" }}>
           <span className="liquidity_icon">liquidity_icon</span>Staking
         </Link>
-      </li> */}
+      </li>
 
       {!account && (
         <li>
