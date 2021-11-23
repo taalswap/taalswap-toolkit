@@ -94,6 +94,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
         onClick={() => {
           const curChainId = window.localStorage.getItem("chainId") ?? klaytn
           window.localStorage.setItem("prevChainId", curChainId)
+          window.localStorage.setItem("crossChain", curChainId)
           window.localStorage.setItem("chainId", blockchain);
           login(ConnectorNames.Injected);
           onDismiss();
@@ -118,6 +119,7 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
         onClick={() => {
           const curChainId = window.localStorage.getItem("chainId") ?? blockchain
           window.localStorage.setItem("prevChainId", curChainId)
+          window.localStorage.setItem("crossChain", curChainId)
           window.localStorage.setItem("chainId", klaytn);
           login(ConnectorNames.Injected);
           onDismiss();
