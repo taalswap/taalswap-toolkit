@@ -87,12 +87,18 @@ const TopBar: React.FC<Props> = ({
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href={`${interfaceBaseUrl}/#/xswap`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            {/*<Link href={`${interfaceBaseUrl}/#/xswap`} style={{ textDecoration: "none", fontSize: "14px" }}>*/}
+            {/*  X-Swap*/}
+            {/*</Link>*/}
+            <Link href={`${frontendBaseUrl}/xswap`} style={{ textDecoration: "none", fontSize: "14px" }}>
               X-Swap
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href={`${interfaceBaseUrl}/#/liquidity`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            {/*<Link href={`${interfaceBaseUrl}/#/liquidity`} style={{ textDecoration: "none", fontSize: "14px" }}>*/}
+            {/*  Liquidity*/}
+            {/*</Link>*/}
+            <Link href={`${frontendBaseUrl}/liquidity`} style={{ textDecoration: "none", fontSize: "14px" }}>
               Liquidity
             </Link>
           </div>
