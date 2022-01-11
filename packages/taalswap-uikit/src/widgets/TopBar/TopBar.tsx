@@ -20,8 +20,6 @@ import NotificationDot from "../../components/NotificationDot/NotificationDot";
 
 // import MetamaskButton from "../Menu/MetamaskButton";
 
-const frontendBaseUrl = process.env.REACT_APP_FRONTEND || "http://localhost:3001";
-const interfaceBaseUrl = process.env.REACT_APP_INTERFACE || "http://localhost:3000";
 
 interface Props {
   account?: string;
@@ -63,7 +61,8 @@ const TopBar: React.FC<Props> = ({
     <div className={scrollPosition < 50 ? "original_header" : "change_header"}>
       <div className="tabbar_wrap">
         <div>
-          <Link href={`${frontendBaseUrl}`}>
+
+          <Link href='/'>
             <img src={logo_img_white} alt="logo_img" className="top_logo" />
             <img src={logo_imgChange} alt="logo_img" className="top_logochange" />
           </Link>
@@ -82,7 +81,7 @@ const TopBar: React.FC<Props> = ({
           {/*  </ButtonMenu>*/}
           {/*</div> */}
           <div>
-            <Link href={`${frontendBaseUrl}`} style={{ color: "#00ab55", textDecoration: "none", fontSize: "14px" }}>
+            <Link href='/' style={{ color: "#00ab55", textDecoration: "none", fontSize: "14px" }}>
               Home
             </Link>
           </div>
@@ -90,7 +89,7 @@ const TopBar: React.FC<Props> = ({
             {/*<Link href={`${interfaceBaseUrl}/#/xswap`} style={{ textDecoration: "none", fontSize: "14px" }}>*/}
             {/*  X-Swap*/}
             {/*</Link>*/}
-            <Link href={`${frontendBaseUrl}/xswap`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href='/xswap' style={{ textDecoration: "none", fontSize: "14px" }}>
               X-Swap
             </Link>
           </div>
@@ -98,17 +97,17 @@ const TopBar: React.FC<Props> = ({
             {/*<Link href={`${interfaceBaseUrl}/#/liquidity`} style={{ textDecoration: "none", fontSize: "14px" }}>*/}
             {/*  Liquidity*/}
             {/*</Link>*/}
-            <Link href={`${frontendBaseUrl}/liquidity`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href='/liquidity' style={{ textDecoration: "none", fontSize: "14px" }}>
               Liquidity
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href={`${frontendBaseUrl}/farms`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href='/farms' style={{ textDecoration: "none", fontSize: "14px" }}>
               Farms
             </Link>
           </div>
           <div style={{ marginLeft: "30px" }}>
-            <Link href={`${frontendBaseUrl}/staking`} style={{ textDecoration: "none", fontSize: "14px" }}>
+            <Link href='/staking' style={{ textDecoration: "none", fontSize: "14px" }}>
               Staking
             </Link>
           </div>
