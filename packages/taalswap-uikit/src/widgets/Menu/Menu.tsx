@@ -176,9 +176,12 @@ const Menu: React.FC<NavProps> = ({
       newIndex === 1
         ? window.localStorage.setItem("chainId", klaytn)
         : window.localStorage.setItem("chainId", blockchain); // Should be called before login
-       newIndex === 1
-        ? window.localStorage.setItem("crossChain", blockchain)
-        : window.localStorage.setItem("crossChain", klaytn);
+      if(window.localStorage.getItem("crossChain") !== null) {
+        newIndex === 1
+          ? window.localStorage.setItem("crossChain", blockchain)
+          : window.localStorage.setItem("crossChain", klaytn);
+      }
+
       window.localStorage.setItem("refresh", "true"); // Should be called before login
       account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
       setIndex(newIndex);

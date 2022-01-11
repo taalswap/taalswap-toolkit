@@ -14,6 +14,7 @@ interface Props {
 const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain, klaytn }) => {
   const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
+
   return (
     <div>
       {account ? (
@@ -32,7 +33,9 @@ const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain, klaytn
           onClick={() => {
             onPresentConnectModal();
           }}
-          style={{ backgroundColor: "#00ab55",padding:"6px 16px",borderRadius:"8px",fontSize:"14px",height:"36px" }}
+          style={{ backgroundColor: "#00ab55"
+            // ,padding:"6px 16px",borderRadius:"8px",fontSize:"14px",height:"36px"
+        }}
         >
           Connect Wallet
         </Button>
