@@ -101,16 +101,16 @@ const TopBar: React.FC<Props> = ({
               Liquidity
             </Link>
           </div>
-          <div style={{ marginLeft: "30px" }}>
-            <Link href='/farms' style={{ textDecoration: "none", fontSize: "14px" }}>
-              Farms
-            </Link>
-          </div>
-          <div style={{ marginLeft: "30px" }}>
-            <Link href='/staking' style={{ textDecoration: "none", fontSize: "14px" }}>
-              Staking
-            </Link>
-          </div>
+          {/*<div style={{ marginLeft: "30px" }}>*/}
+          {/*  <Link href='/farms' style={{ textDecoration: "none", fontSize: "14px" }}>*/}
+          {/*    Farms*/}
+          {/*  </Link>*/}
+          {/*</div>*/}
+          {/*<div style={{ marginLeft: "30px" }}>*/}
+          {/*  <Link href='/staking' style={{ textDecoration: "none", fontSize: "14px" }}>*/}
+          {/*    Staking*/}
+          {/*  </Link>*/}
+          {/*</div>*/}
           <div style={{ marginLeft: "30px" }}>
             <Link href="https://taalswap.info/home" style={{ textDecoration: "none", fontSize: "14px" }}>
               Info
@@ -123,7 +123,7 @@ const TopBar: React.FC<Props> = ({
           </div>
           <div style={{ marginLeft: "30px" }}>
             <Link
-              href="https://taalswap.gitbook.io/taalswap-docs-v-2-0"
+              href="https://docs.taalswap.finance/taalswap-docs"
               style={{ textDecoration: "none", fontSize: "14px" }}
             >
               Docs

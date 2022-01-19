@@ -118,7 +118,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           </MenuLink>
         </MenuEntry>
         <MenuEntry key="doc">
-          <MenuLink href="https://taalswap.gitbook.io/taalswap-docs-v-2-0">
+          <MenuLink href="https://docs.taalswap.finance/taalswap-docs">
             <Icon icon={gitbookIcon} width="24" />
             <LinkLabel style={{ marginLeft: "8px" }} isPushed={isPushed}>
               Docs

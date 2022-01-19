@@ -84,16 +84,16 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
           <span className="liquidity_icon">liquidity_icon</span>Liquidity
         </Link>
       </li>
-      <li>
-        <Link href='/farms' style={{ textDecoration: "none" }}>
-          <span className="farms_icon">Farms_icon</span>Farms
-        </Link>
-      </li>
-      <li>
-        <Link href='/staking' style={{ textDecoration: "none" }}>
-          <span className="liquidity_icon">liquidity_icon</span>Staking
-        </Link>
-      </li>
+      {/*<li>*/}
+      {/*  <Link href='/farms' style={{ textDecoration: "none" }}>*/}
+      {/*    <span className="farms_icon">Farms_icon</span>Farms*/}
+      {/*  </Link>*/}
+      {/*</li>*/}
+      {/*<li>*/}
+      {/*  <Link href='/staking' style={{ textDecoration: "none" }}>*/}
+      {/*    <span className="liquidity_icon">liquidity_icon</span>Staking*/}
+      {/*  </Link>*/}
+      {/*</li>*/}
 
       {!account && (
         <li>
@@ -121,7 +121,7 @@ const Results = React.forwardRef<HTMLDivElement, modalPros>(({ account, onConnec
         </Link>
       </li>
       <li>
-        <Link href="https://taalswap.gitbook.io/taalswap-docs-v-2-0" style={{ textDecoration: "none" }}>
+        <Link href="https://docs.taalswap.finance/taalswap-docs" style={{ textDecoration: "none" }}>
           <Icon icon={gitbookIcon} width="20" style={{ marginRight: "8px", color: "#637381" }} />
           Docs
         </Link>
