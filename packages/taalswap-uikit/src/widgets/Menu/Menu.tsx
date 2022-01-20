@@ -8,16 +8,10 @@ import Logo from "./components/Logo";
 import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
-// import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
-import { ConnectorNames } from "../WalletModal/types";
-import { useWalletModal } from "../WalletModal";
 import Languages from "./Languages";
 import Settings from "./Settings";
-import Button from "../../components/Button/Button";
-import ButtonMenu from "../../components/ButtonMenu/ButtonMenu";
-import ButtonMenuItem from "../../components/ButtonMenu/ButtonMenuItem";
-import NotificationDot from "../../components/NotificationDot/NotificationDot";
+import NetworkButtons from "../../components/NetworkButtons/NetworkButtons";
 
 // import MetamaskButton from "./MetamaskButton";
 
@@ -72,19 +66,6 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 
-const getInitialChainId = (chainId: string | null) => {
-  switch (chainId) {
-    case "1":
-    case "3":
-    case "4":
-      return 0;
-    case "1001":
-    case "8217":
-      return 1;
-    default:
-      return 0;
-  }
-};
 
 const Menu: React.FC<NavProps> = ({
   account,
@@ -107,10 +88,6 @@ const Menu: React.FC<NavProps> = ({
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
-  const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain, klaytn);
-  const chainId = window.localStorage.getItem("chainId") ?? blockchain;
-  // const [index, setIndex] = useState(chainId === "1" ? 0 : 1);
-  const [index, setIndex] = useState(() => getInitialChainId(chainId));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -148,45 +125,9 @@ const Menu: React.FC<NavProps> = ({
     }
   }, [isMobile]);
 
-  useEffect(() => {
-    switch (chainId) {
-      case "1":
-      case "3":
-      case "4":
-        setIndex(0);
-        break;
-      case "1001":
-      case "8217":
-        setIndex(1);
-        break;
-      default:
-        setIndex(0);
-        break;
-    }
-  }, [chainId]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
-
-  const handleClick = (newIndex: number) => {
-    if (newIndex !== index) {
-      newIndex === 1
-        ? window.localStorage.setItem("prevChainId", blockchain)
-        : window.localStorage.setItem("prevChainId", klaytn);
-      newIndex === 1
-        ? window.localStorage.setItem("chainId", klaytn)
-        : window.localStorage.setItem("chainId", blockchain); // Should be called before login
-      if(window.localStorage.getItem("crossChain") !== null) {
-        newIndex === 1
-          ? window.localStorage.setItem("crossChain", blockchain)
-          : window.localStorage.setItem("crossChain", klaytn);
-      }
-
-      window.localStorage.setItem("refresh", "true"); // Should be called before login
-      account === undefined ? onPresentConnectModal() : login(ConnectorNames.Injected);
-      setIndex(newIndex);
-    }
-  };
 
   return (
     <Wrapper>
@@ -202,10 +143,8 @@ const Menu: React.FC<NavProps> = ({
             <MetamaskButton />
           </span> */}
           <span style={{ padding: "12px" }}>
-            <ButtonMenu scale="xs" activeIndex={index} onItemClick={handleClick}>
-              <ButtonMenuItem style={{ height: "30px", fontSize: "13x" }}>Ethereum</ButtonMenuItem>
-              <ButtonMenuItem style={{ height: "30px", fontSize: "13px" }}>Klaytn</ButtonMenuItem>
-            </ButtonMenu>
+
+            <NetworkButtons login={login} logout={logout} account={account} blockchain={blockchain} klaytn={klaytn}/>
           </span>
           {!isSm && !isXs && (
             <>
