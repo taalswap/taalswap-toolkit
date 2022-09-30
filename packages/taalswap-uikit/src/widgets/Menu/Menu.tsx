@@ -82,6 +82,7 @@ const Menu: React.FC<NavProps> = ({
   children,
   blockchain,
   klaytn,
+  binance
 }) => {
   const { isXl, isSm, isXs } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -144,7 +145,7 @@ const Menu: React.FC<NavProps> = ({
           </span> */}
           <span style={{ padding: "12px" }}>
 
-            <NetworkButtons login={login} logout={logout} account={account} blockchain={blockchain} klaytn={klaytn}/>
+            <NetworkButtons login={login} logout={logout} account={account} blockchain={blockchain} klaytn={klaytn} binance={binance} />
           </span>
           {!isSm && !isXs && (
             <>
@@ -162,7 +163,7 @@ const Menu: React.FC<NavProps> = ({
             </>
           )}
 
-          <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} />
+          <UserBlock account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} binance={binance}/>
         </Flex>
       </StyledNav>
       <BodyWrapper>

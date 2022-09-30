@@ -5,5 +5,6 @@ export interface NetworkButtonsProps {
     logout:()=>void;
     account?: string;
     blockchain: string;
-    klaytn:string;
+    klaytn: string;
+    binance: string;
 }

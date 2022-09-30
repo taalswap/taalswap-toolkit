@@ -32,6 +32,7 @@ interface Props {
   toggleTheme: (isDark: boolean) => void;
   blockchain: string;
   klaytn: string;
+  binance: string;
 }
 
 const TopBar: React.FC<Props> = ({
@@ -45,9 +46,10 @@ const TopBar: React.FC<Props> = ({
   toggleTheme,
   blockchain,
   klaytn,
+  binance
 }) => {
   const theme = useTheme();
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const [scrollPosition, setScrollPosition] = useState(0);
   const updateScroll = () => {
@@ -160,7 +162,7 @@ const TopBar: React.FC<Props> = ({
           <div style={{ marginRight: "10px" }}>
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </div>
-          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} />
+          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} binance={binance}/>
         </div>
       </div>
     </div>
