@@ -7,4 +7,5 @@ export interface NetworkButtonsProps {
     blockchain: string;
     klaytn: string;
     binance: string;
+    polygon: string;
 }

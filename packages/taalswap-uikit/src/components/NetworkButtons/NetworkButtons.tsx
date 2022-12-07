@@ -16,16 +16,19 @@ const getInitialChainId = (chainId: string | null) => {
         case "56":
         case "97":
             return 2;
+        case "137":
+        case "80001":
+            return 3;
         default:
             return 0;
     }
 };
 
 
-const NetworkButtons: React.FC<NetworkButtonsProps> = ({login, logout, account, blockchain, klaytn, binance}) => {
+const NetworkButtons: React.FC<NetworkButtonsProps> = ({login, logout, account, blockchain, klaytn, binance, polygon}) => {
     const chainId = window.localStorage.getItem("chainId") ?? blockchain;
     const [index, setIndex] = useState(() => getInitialChainId(chainId));
-    const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain, klaytn);
+    const { onPresentConnectModal } = useWalletModal(login, logout, account, blockchain, klaytn, polygon);
 
 
     useEffect(() => {
@@ -42,6 +45,10 @@ const NetworkButtons: React.FC<NetworkButtonsProps> = ({login, logout, account, 
             case "56":
             case "97":
                 setIndex(2);
+                break;
+            case "137":
+            case "80001":
+                setIndex(3);
                 break;
             default:
                 setIndex(0);
@@ -66,15 +73,19 @@ const NetworkButtons: React.FC<NetworkButtonsProps> = ({login, logout, account, 
             if (index === 0) window.localStorage.setItem("prevChainId", blockchain);
             if (index === 1) window.localStorage.setItem("prevChainId", klaytn);
             if (index === 2) window.localStorage.setItem("prevChainId", binance);
+            if (index === 3) window.localStorage.setItem("prevChainId", polygon);
 
             if (newIndex === 0) window.localStorage.setItem("chainId", blockchain);
             if (newIndex === 1) window.localStorage.setItem("chainId", klaytn);
             if (newIndex === 2) window.localStorage.setItem("chainId", binance);
+            if (newIndex === 3) window.localStorage.setItem("chainId", polygon);
 
             if(window.localStorage.getItem("crossChain") !== null) {
                 newIndex === 1
                   ? window.localStorage.setItem("crossChain", blockchain)
-                  : window.localStorage.setItem("crossChain", klaytn);
+                  : newIndex === 2
+                    ? window.localStorage.setItem("crossChain", klaytn)
+                    : window.localStorage.setItem("crossChain", polygon);
             }
 
             window.localStorage.setItem("refresh", "true"); // Should be called before login
@@ -88,6 +99,7 @@ const NetworkButtons: React.FC<NetworkButtonsProps> = ({login, logout, account, 
         <ButtonMenuItem style={{ height: "30px", fontSize: "13x" }}>Ethereum</ButtonMenuItem>
         <ButtonMenuItem style={{ height: "30px", fontSize: "13px" }}>Klaytn</ButtonMenuItem>
         <ButtonMenuItem style={{ height: "30px", fontSize: "13px" }}>Binance</ButtonMenuItem>
+        <ButtonMenuItem style={{ height: "30px", fontSize: "13px" }}>Polygon</ButtonMenuItem>
     </ButtonMenu>
 );}
 

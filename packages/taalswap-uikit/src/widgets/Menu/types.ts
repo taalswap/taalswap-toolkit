@@ -64,4 +64,5 @@ export interface NavProps extends PanelProps {
   blockchain: string;
   klaytn: string;
   binance: string;
+  polygon: string;
 }
