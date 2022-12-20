@@ -8,6 +8,7 @@ import CopyToClipboard from "./CopyToClipboard";
 import { connectorLocalStorageKey } from "./config";
 import { ConnectorNames, Login } from "./types";
 import CloseBtn from "./icons/closeBtn";
+import { Box, Grid, Radio, Paper, RadioGroup, CardActionArea, FormControlLabel } from "@material-ui/core";
 
 interface Props {
   account: string;
@@ -93,143 +94,160 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
     <Flex mb="32px">
       { renderExplorer(account) }
     </Flex>
-    <Flex justifyContent="space-between">
-      <Button
-        scale="sm"
-        variant="secondary"
-        style={{
-          minWidth: "88px",
-          minHeight: "40px",
-          backgroundColor: "#00AB55",
-          color: "#fff",
-          fontSize: "10px",
-          marginRight: "10px",
-          lineHeight: "1.2",
-        }}
-        onClick={() => {
-          const curChainId = window.localStorage.getItem("chainId") ?? klaytn
-          window.localStorage.setItem("prevChainId", curChainId)
-            if(window.localStorage.getItem("crossChain") !== null) {
-                window.localStorage.setItem("crossChain", curChainId)
-            }
+      <Grid container spacing={2}>
+          <Grid item lg={6} sm={12}>
+          <Button
+              scale="sm"
+              variant="secondary"
+              style={{
+                  width:'100%',
+                  height:'100%',
+                  padding:'5px 2px',
+                  backgroundColor: "#00AB55",
+                  color: "#fff",
+                  fontSize: "14px",
+                  marginRight: "10px",
+                  lineHeight: "1.2",
+              }}
+              onClick={() => {
+                  const curChainId = window.localStorage.getItem("chainId") ?? klaytn
+                  window.localStorage.setItem("prevChainId", curChainId)
+                  if(window.localStorage.getItem("crossChain") !== null) {
+                      window.localStorage.setItem("crossChain", curChainId)
+                  }
 
-          window.localStorage.setItem("chainId", blockchain);
-          login(ConnectorNames.Injected);
-          onDismiss();
-        }}
-      >
-        Ethereum
-        <br />
-        Mainnet
-      </Button>
-      <Button
-        scale="sm"
-        variant="secondary"
-        style={{
-          minWidth: "88px",
-          minHeight: "40px",
-          backgroundColor: "#00AB55",
-          color: "#fff",
-          fontSize: "10px",
-          lineHeight: "1.2",
-          marginRight: "auto",
-        }}
-        onClick={() => {
-          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
-          window.localStorage.setItem("prevChainId", curChainId)
-            if(window.localStorage.getItem("crossChain") !== null) {
-                window.localStorage.setItem("crossChain", curChainId)
-            }
-          window.localStorage.setItem("chainId", klaytn);
-          login(ConnectorNames.Injected);
-          onDismiss();
-        }}
-      >
-        Klaytn
-        <br />
-        Cypress
-      </Button>
-      <Button
-        scale="sm"
-        variant="secondary"
-        style={{
-          minWidth: "88px",
-          minHeight: "40px",
-          backgroundColor: "#00AB55",
-          color: "#fff",
-          fontSize: "10px",
-          lineHeight: "1.2",
-          marginRight: "auto",
-        }}
-        onClick={() => {
-          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
-          window.localStorage.setItem("prevChainId", curChainId)
-          if(window.localStorage.getItem("crossChain") !== null) {
-            window.localStorage.setItem("crossChain", curChainId)
-          }
-          window.localStorage.setItem("chainId", binance);
-          login(ConnectorNames.Injected);
-          onDismiss();
-        }}
-      >
-        Binance
-        <br />
-        Mainnet
-      </Button>
-      <Button
-        scale="sm"
-        variant="secondary"
-        style={{
-          minWidth: "88px",
-          minHeight: "40px",
-          backgroundColor: "#00AB55",
-          color: "#fff",
-          fontSize: "10px",
-          lineHeight: "1.2",
-          marginRight: "auto",
-        }}
-        onClick={() => {
-          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
-          window.localStorage.setItem("prevChainId", curChainId)
-          if(window.localStorage.getItem("crossChain") !== null) {
-            window.localStorage.setItem("crossChain", curChainId)
-          }
-          window.localStorage.setItem("chainId", polygon);
-          login(ConnectorNames.Injected);
-          onDismiss();
-        }}
-      >
-        Polygon
-        <br />
-        Mainnet
-      </Button>
-      <Button
-        scale="sm"
-        variant="secondary"
-        style={{
-          minWidth: "88px",
-          minHeight: "40px",
-          backgroundColor: "#00AB55",
-          color: "#fff",
-          fontSize: "10px",
-          lineHeight: "1.2",
-          marginRight: "auto",
-        }}
-        onClick={() => {
-          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
-          window.localStorage.setItem("prevChainId", curChainId)
-          if(window.localStorage.getItem("crossChain") !== null) {
-            window.localStorage.setItem("crossChain", curChainId)
-          }
-          window.localStorage.setItem("chainId", aurora);
-          login(ConnectorNames.Injected);
-          onDismiss();
-        }}
-      >
-        Aurora
-        <br />
-        Mainnet
-      </Button>
+                  window.localStorage.setItem("chainId", blockchain);
+                  login(ConnectorNames.Injected);
+                  onDismiss();
+              }}
+          >
+              Ethereum
+              <br />
+              Mainnet
+          </Button>
+          </Grid>
+          <Grid item lg={6} sm={12}>
+          <Button
+              scale="sm"
+              variant="secondary"
+              style={{
+                  width:'100%',
+                  height:'100%',
+                  padding:'5px 2px',
+                  backgroundColor: "#00AB55",
+                  color: "#fff",
+                  fontSize: "14px",
+                  lineHeight: "1.2",
+                  marginRight: "auto",
+              }}
+              onClick={() => {
+                  const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+                  window.localStorage.setItem("prevChainId", curChainId)
+                  if(window.localStorage.getItem("crossChain") !== null) {
+                      window.localStorage.setItem("crossChain", curChainId)
+                  }
+                  window.localStorage.setItem("chainId", klaytn);
+                  login(ConnectorNames.Injected);
+                  onDismiss();
+              }}
+          >
+              Klaytn
+              <br />
+              Cypress
+          </Button>
+          </Grid>
+          <Grid item lg={6} sm={12}>
+          <Button
+              scale="sm"
+              variant="secondary"
+              style={{
+                  width:'100%',
+                  height:'100%',
+                  padding:'5px 2px',
+                  backgroundColor: "#00AB55",
+                  color: "#fff",
+                  fontSize: "14px",
+                  lineHeight: "1.2",
+                  marginRight: "auto",
+              }}
+              onClick={() => {
+                  const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+                  window.localStorage.setItem("prevChainId", curChainId)
+                  if(window.localStorage.getItem("crossChain") !== null) {
+                      window.localStorage.setItem("crossChain", curChainId)
+                  }
+                  window.localStorage.setItem("chainId", binance);
+                  login(ConnectorNames.Injected);
+                  onDismiss();
+              }}
+          >
+              Binance
+              <br />
+              Mainnet
+          </Button>
+          </Grid>
+          <Grid item lg={6} sm={12}>
+          <Button
+              scale="sm"
+              variant="secondary"
+              style={{
+                  width:'100%',
+                  height:'100%',
+                  padding:'5px 2px',
+                  backgroundColor: "#00AB55",
+                  color: "#fff",
+                  fontSize: "14px",
+                  lineHeight: "1.2",
+                  marginRight: "auto",
+              }}
+              onClick={() => {
+                  const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+                  window.localStorage.setItem("prevChainId", curChainId)
+                  if(window.localStorage.getItem("crossChain") !== null) {
+                      window.localStorage.setItem("crossChain", curChainId)
+                  }
+                  window.localStorage.setItem("chainId", polygon);
+                  login(ConnectorNames.Injected);
+                  onDismiss();
+              }}
+          >
+              Polygon
+              <br />
+              Mainnet
+          </Button>
+          </Grid>
+          <Grid item lg={6} sm={12}>
+          <Button
+              scale="sm"
+              variant="secondary"
+              style={{
+                  width:'100%',
+                  height:'100%',
+                  padding:'5px 2px',
+                  backgroundColor: "#00AB55",
+                  color: "#fff",
+                  fontSize: "14px",
+                  lineHeight: "1.2",
+                  marginRight: "auto",
+              }}
+              onClick={() => {
+                  const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+                  window.localStorage.setItem("prevChainId", curChainId)
+                  if(window.localStorage.getItem("crossChain") !== null) {
+                      window.localStorage.setItem("crossChain", curChainId)
+                  }
+                  window.localStorage.setItem("chainId", aurora);
+                  login(ConnectorNames.Injected);
+                  onDismiss();
+              }}
+          >
+              Aurora
+              <br />
+              Mainnet
+          </Button>
+          </Grid>
+      </Grid>
+    <Box sx={{width:'100%', marginTop:'15px'}}>
       <Button
         scale="sm"
         variant="secondary"
@@ -238,11 +256,11 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
           window.localStorage.removeItem(connectorLocalStorageKey);
           onDismiss();
         }}
-        style={{ minWidth: "88px", height: "auto", minHeight: "40px", fontSize: "14px" }}
+        style={{ width:'100%', height: "auto", minHeight: "40px", fontSize: "14px" }}
       >
         Logout
       </Button>
-    </Flex>
+    </Box>
   </Modal>
 );
 
