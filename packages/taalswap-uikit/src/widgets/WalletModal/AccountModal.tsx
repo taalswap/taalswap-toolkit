@@ -18,6 +18,7 @@ interface Props {
   klaytn: string;
   binance: string;
   polygon: string;
+  aurora: string;
 }
 
 const renderExplorer = (account: string) => {
@@ -40,6 +41,18 @@ const renderExplorer = (account: string) => {
     case 8217:
       url = 'https://scope.klaytn.com/account'
       break
+    case 80001:
+      url = 'https://mumbai.polygonscan.com/address'
+      break
+    case 137:
+      url = 'https://polygonscan.com/address'
+      break
+    case 1313161555:
+      url = 'https://testnet.aurorascan.dev/address'
+      break
+    case 1313161554:
+      url = 'https://aurorascan.dev/address'
+      break
     default:
       break
   }
@@ -55,7 +68,7 @@ const renderExplorer = (account: string) => {
   )
 }
 
-const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon, onDismiss = () => null }) => (
+const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon, aurora, onDismiss = () => null }) => (
   <Modal title="Your wallet" onDismiss={onDismiss} style={{ position: "relative" }}>
     <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }}>
       <CloseBtn onClick={onDismiss} />
@@ -187,6 +200,33 @@ const AccountModal: React.FC<Props> = ({ account, login, logout, blockchain, kla
         }}
       >
         Polygon
+        <br />
+        Mainnet
+      </Button>
+      <Button
+        scale="sm"
+        variant="secondary"
+        style={{
+          minWidth: "88px",
+          minHeight: "40px",
+          backgroundColor: "#00AB55",
+          color: "#fff",
+          fontSize: "10px",
+          lineHeight: "1.2",
+          marginRight: "auto",
+        }}
+        onClick={() => {
+          const curChainId = window.localStorage.getItem("chainId") ?? blockchain
+          window.localStorage.setItem("prevChainId", curChainId)
+          if(window.localStorage.getItem("crossChain") !== null) {
+            window.localStorage.setItem("crossChain", curChainId)
+          }
+          window.localStorage.setItem("chainId", aurora);
+          login(ConnectorNames.Injected);
+          onDismiss();
+        }}
+      >
+        Aurora
         <br />
         Mainnet
       </Button>

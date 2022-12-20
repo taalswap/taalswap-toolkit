@@ -65,4 +65,5 @@ export interface NavProps extends PanelProps {
   klaytn: string;
   binance: string;
   polygon: string;
+  aurora: string;
 }

@@ -8,4 +8,5 @@ export interface NetworkButtonsProps {
     klaytn: string;
     binance: string;
     polygon: string;
+    aurora: string;
 }

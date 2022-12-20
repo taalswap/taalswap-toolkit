@@ -34,6 +34,7 @@ interface Props {
   klaytn: string;
   binance: string;
   polygon: string;
+  aurora: string;
 }
 
 const TopBar: React.FC<Props> = ({
@@ -48,10 +49,11 @@ const TopBar: React.FC<Props> = ({
   blockchain,
   klaytn,
   binance,
-  polygon
+  polygon,
+  aurora
 }) => {
   const theme = useTheme();
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon, aurora);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
   const [scrollPosition, setScrollPosition] = useState(0);
   const updateScroll = () => {
@@ -164,7 +166,7 @@ const TopBar: React.FC<Props> = ({
           <div style={{ marginRight: "10px" }}>
             <Settings isDark={isDark} toggleTheme={toggleTheme} />
           </div>
-          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} binance={binance} polygon={polygon}/>
+          <TopMenu account={account} login={login} logout={logout} blockchain={blockchain} klaytn={klaytn} binance={binance} polygon={polygon} aurora={aurora}/>
         </div>
       </div>
     </div>

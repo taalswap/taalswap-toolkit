@@ -11,10 +11,11 @@ interface Props {
   klaytn: string;
   binance: string;
   polygon: string;
+  aurora: string;
 }
 
-const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon }) => {
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon);
+const UserBlock: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon, aurora }) => {
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon, aurora);
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null;
 
   return (

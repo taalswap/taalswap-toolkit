@@ -15,6 +15,7 @@ interface Props {
   klaytn: string;
   binance: string;
   polygon: string;
+  aurora: string;
 }
 
 interface modalPros {
@@ -23,10 +24,10 @@ interface modalPros {
   onClose: () => void;
 }
 
-const TopMenu: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon}) => {
+const TopMenu: React.FC<Props> = ({ account, login, logout, blockchain, klaytn, binance, polygon, aurora}) => {
   const modalEl = useRef<HTMLDivElement>(null);
   const [showResults, setShowResults] = React.useState(Boolean);
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon);
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account, blockchain, klaytn, binance, polygon, aurora);
 
   const onClose = () => {
     setShowResults(false);
